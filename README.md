@@ -2,10 +2,13 @@
 
 todo: @hamid: write a readme on how to use this.
 
-![Unittests status badge](https://github.com/Hochfrequenz/python_template_repository/workflows/Unittests/badge.svg)
-![Coverage status badge](https://github.com/Hochfrequenz/python_template_repository/workflows/Coverage/badge.svg)
-![Linting status badge](https://github.com/Hochfrequenz/python_template_repository/workflows/Linting/badge.svg)
-![Black status badge](https://github.com/Hochfrequenz/python_template_repository/workflows/Formatting/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Python Versions (officially) supported](https://img.shields.io/pypi/pyversions/bo4e-dotnet-generator.svg)
+![Pypi status badge](https://img.shields.io/pypi/v/bo4e-dotnet-generator)
+![Unittests status badge](https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/workflows/Unittests/badge.svg)
+![Coverage status badge](https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/workflows/Coverage/badge.svg)
+![Linting status badge](https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/workflows/Linting/badge.svg)
+![Black status badge](https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/workflows/Formatting/badge.svg)
 
 ## How to use this Tool (as a user)
 ```bash
