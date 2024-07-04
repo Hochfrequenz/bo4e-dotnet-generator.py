@@ -12,7 +12,7 @@ import typer
 from bo4egenerator.generator import generate_csharp_classes
 from bo4egenerator.tooling import install_bo4e_schema_tool
 
-app = typer.Typer(help="Converts a single .lpex file to .xlsx")
+app = typer.Typer(help="It generates C# classes from the BO4E schema files.")
 
 
 @app.command()
