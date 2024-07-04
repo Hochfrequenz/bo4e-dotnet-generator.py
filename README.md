@@ -9,7 +9,7 @@ todo: @hamid: write a readme on how to use this.
 
 ## How to use this Tool (as a user)
 ```bash
-pip install bo4e-dotnet-generator
+pip install bo4egenerator
 ```
 
 ## How to use this Repository on Your Machine (as a developer)

@@ -22,9 +22,9 @@ def run_command(command: str, cwd: Path | None = None) -> subprocess.CompletedPr
     return result
 
 
-def install_bo4e_schema_tool() -> None:
+def install_bo4e_schema_tool(schema_path: str) -> None:
     """
     the installation step of bost shall be done at this point, because bost is a dependency of this project
     """
-    run_command("bost -o ./schemas/")
+    run_command(f"bost -o {schema_path}")
     print("BO4E-Schema-Tool installation and schema downloading completed.")

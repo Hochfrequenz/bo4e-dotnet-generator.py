@@ -1,5 +1,5 @@
 [project]
-name = "bo4e-dotnet-generator"
+name = "bo4egenerator"
 description = "Generates C# Classes from JSON schemas for a 100% code-generated BO4E.NEt v2"
 license = { text = "MIT" }
 requires-python = ">=3.11"

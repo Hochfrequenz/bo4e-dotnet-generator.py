@@ -28,7 +28,7 @@ def main() -> None:
         quicktype_executable = "quicktype"  # Assuming it's in PATH on Linux (GH Actions)
 
     # Install BO4E-Schema-Tool and generate schemas
-    install_bo4e_schema_tool()
+    install_bo4e_schema_tool(schemas_dir)
 
     # Generate C# classes
     generate_csharp_classes(Path(project_root), Path(schemas_dir), Path(output_dir), quicktype_executable)
