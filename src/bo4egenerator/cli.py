@@ -7,10 +7,15 @@ import os
 import platform
 from pathlib import Path
 
+import typer
+
 from bo4egenerator.generator import generate_csharp_classes
 from bo4egenerator.tooling import install_bo4e_schema_tool
 
+app = typer.Typer(help="Converts a single .lpex file to .xlsx")
 
+
+@app.command()
 def main() -> None:
     """
     It will install the BO4E-Schema-Tool and
