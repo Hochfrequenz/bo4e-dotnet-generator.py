@@ -1,3 +1,6 @@
+"""
+this is the main entry point for the bo4e-generator. It generates C# classes from the BO4E schema files.
+"""
 import os
 import platform
 from pathlib import Path
@@ -7,6 +10,10 @@ from bo4egenerator.tooling import install_bo4e_schema_tool
 
 
 def main() -> None:
+    """
+    It will install the BO4E-Schema-Tool and
+    generate C# classes from the BO4E schema files with help of Quicktype.
+    """
     # Define the base directories
     project_root = os.path.abspath(os.path.dirname(__file__))  # Root directory of the project
     schemas_dir = os.path.join(project_root, "schemas")

@@ -1,3 +1,6 @@
+"""
+It generates C# classes from the BO4E schema files with help od Quicktype npm package.
+"""
 import os
 import subprocess
 from datetime import datetime
@@ -5,6 +8,14 @@ from pathlib import Path
 
 
 def generate_csharp_classes(project_root: Path, schemas_dir: Path, output_dir: Path, quicktype_executable: str) -> None:
+    """
+    Generate C# classes from the BO4E schema files with help of Quicktype npm package.
+    Args:
+        project_root (Path): root path of the project
+        schemas_dir (Path): path to the directory containing the BO4E schema files
+        output_dir (Path): path to the directory where the generated C# BO classes will be saved
+        quicktype_executable (str): path to the Quicktype executable
+    """
     print("Starting C# class generation...")
     assert project_root.exists() and project_root.is_dir()
     assert schemas_dir.exists() and schemas_dir.is_dir()
@@ -18,9 +29,9 @@ def generate_csharp_classes(project_root: Path, schemas_dir: Path, output_dir: P
     os.chdir(project_root)
 
     # Open a log file for writing error messages
-    with open(log_file_name, "w") as log_file:
+    with open(log_file_name, "w", encoding="utf-8") as log_file:
         # Walk through the schema directory
-        for root, dirs, files in os.walk(schemas_dir):
+        for root, _, files in os.walk(schemas_dir):
             for file in files:
                 if file.endswith(".json"):
                     # Construct the full path to the schema file
@@ -69,6 +80,6 @@ def generate_csharp_classes(project_root: Path, schemas_dir: Path, output_dir: P
                         log_file.write(f"Error running command: {' '.join(command)}\n")
                         log_file.write(f"Error message: {e}\n")
                         log_file.write(f"Standard Error Output: {e.stderr}\n\n")
-                        print(f"Error encountered. Logged and continuing with the next file.")
+                        print("Error encountered. Logged and continuing with the next file.")
 
     print(f"C# classes generation completed. Check {log_file_name} for any issues encountered.")
