@@ -1,36 +1,15 @@
-# Python Template Repository including a `tox.ini`, Unittests&Coverage, Pylint & MyPy Linting Actions and a PyPI Publishing Workflow
+# Generate C# Code from BO4E JSON Schemas
 
-<!--- you need to replace the `organization/repo_name` in the status badge URLs --->
+todo: @hamid: write a readme on how to use this.
 
 ![Unittests status badge](https://github.com/Hochfrequenz/python_template_repository/workflows/Unittests/badge.svg)
 ![Coverage status badge](https://github.com/Hochfrequenz/python_template_repository/workflows/Coverage/badge.svg)
 ![Linting status badge](https://github.com/Hochfrequenz/python_template_repository/workflows/Linting/badge.svg)
 ![Black status badge](https://github.com/Hochfrequenz/python_template_repository/workflows/Formatting/badge.svg)
 
-This is a template repository.
-It doesn't contain any useful code but only a minimal working setup for a Python project including:
-
-- a basic **project structure** with
-  - tox.ini
-  - `pyproject.toml` where the project metadata and dependencies are defined
-  - and a requirements.txt derived from it
-  - an example class
-  - an example unit test (using pytest)
-- ready to use **Github Actions** for
-  - [pytest](https://pytest.org)
-  - [code coverage measurement](https://coverage.readthedocs.io) (fails below 80% by default)
-  - [pylint](https://pylint.org/) (only accepts 10/10 code rating by default)
-  - [mypy](https://github.com/python/mypy) (static type checks where possible)
-  - [black](https://github.com/psf/black) code formatter check
-  - [isort](https://pycqa.github.io/isort/) import order check
-  - [codespell](https://github.com/codespell-project/codespell) spell check (including an ignore list)
-  - autoresolve dev-dependencies with `tox -e compile_requirements`
-  - ready-to-use publishing workflow for pypi (see readme section below)
-
-By default, it uses Python version 3.12.
-
-This repository uses a [`src`-based layout](https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/).
-This approach has many advantages and basically means for developers, that all business logic lives in the `src` directory.
+```bash
+pip install bo4e-dotnet-generator
+```
 
 ## How to use this Repository on Your Machine
 
@@ -49,11 +28,11 @@ Set-ExecutionPolicy -ExecutionPolicy AllSigned
 and try again (with your regular user, not as admin).
 
 ### Creating the project-specifc dev environment.
-If all problems are solved and you're ready to start: 
-   1. clone the repository, you want to work in 
-   2. create the `dev` environment on your machine. To do this: 
+If all problems are solved and you're ready to start:
+   1. clone the repository, you want to work in
+   2. create the `dev` environment on your machine. To do this:
        a) Open a Powershell
-       b) change directory to your repository 
+       b) change directory to your repository
 and finally type
 
 ```bash
@@ -80,12 +59,12 @@ If you ever see something like `from src.mypackage.mymodule import ...`, then yo
 a) Open any test file whose name starts with `test_` in unit tests/tests
 b) Right click inside the code ➡ More Run/Debug ➡ Modify Run Configuration ➡ expand Environment collapsible ➡ Working directory
 c) Change to `your_repo` instead of `your_repo\unittests`
-By doing so, the import and other file paths in the tests are relative to the repo root. 
+By doing so, the import and other file paths in the tests are relative to the repo root.
 If this doesn't work anymore, see: [working directory of the unit tests](https://www.jetbrains.com/help/pycharm/creating-run-debug-configuration-for-tests.html)
 
 ### How to use with VS Code
 All paths mentioned in this section are relative to the repository root.
- 
+
 1. Open the folder with VS Code.
 2. **Select the python interpreter** ([official docs](https://code.visualstudio.com/docs/python/environments#_manually-specify-an-interpreter)) which is created by tox. Open the command pallett with `CTRL + P` and type `Python: Select Interpreter`. Select the interpreter which is placed in `.tox/dev/Scripts/python.exe` under Windows or `.tox/dev/bin/python` under Linux and macOS.
 3. **Set up pytest and pylint**. Therefore we open the file `.vscode/settings.json` which should be automatically generated during the interpreter setup. If it doesn't exist, create it. Insert the following lines into the settings:
