@@ -1,5 +1,5 @@
 """
-contains CLI logic for bo4egenerator.
+contains CLI logic for bo4e-dotnet-generator.
 this is the main entry point for the bo4e-generator. It generates C# classes from the BO4E schema files.
 """
 
