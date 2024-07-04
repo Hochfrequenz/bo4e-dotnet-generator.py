@@ -1,4 +1,4 @@
-from mypackage.mymodule import MyClass
+from bo4egenerator.mymodule import MyClass
 
 
 class TestMyClass:
