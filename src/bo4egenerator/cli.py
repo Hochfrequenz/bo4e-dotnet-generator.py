@@ -39,6 +39,7 @@ def main() -> None:
     # Generate C# classes
     generate_csharp_classes(Path(project_root), Path(schemas_dir), Path(output_dir), quicktype_executable)
 
+
 def cli() -> None:
     """entry point of the script defined in pyproject.toml"""
     # ⚠ If you ever change the name of this module (cli.py) or this function (def cli), be sure to update pyproject.toml
