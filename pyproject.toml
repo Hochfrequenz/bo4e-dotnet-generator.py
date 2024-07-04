@@ -4,7 +4,7 @@ description = "Generates C# Classes from JSON schemas for a 100% code-generated 
 license = { text = "MIT" }
 requires-python = ">=3.11"
 authors = [{ name = "Hamid Hajiparvaneh", email = "info+github@hochfrequenz.de" }]
-keywords = ["your", "important", "keywords"]
+keywords = ["BO4E", "Code Generation", "JSON schema"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Environment :: Console",
