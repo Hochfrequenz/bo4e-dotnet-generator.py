@@ -4,7 +4,7 @@ from datetime import datetime
 from pathlib import Path
 
 
-def generate_csharp_classes(project_root: Path, schemas_dir: Path, output_dir: Path, quicktype_executable):
+def generate_csharp_classes(project_root: Path, schemas_dir: Path, output_dir: Path, quicktype_executable: str) -> None:
     print("Starting C# class generation...")
     assert project_root.exists() and project_root.is_dir()
     assert schemas_dir.exists() and schemas_dir.is_dir()

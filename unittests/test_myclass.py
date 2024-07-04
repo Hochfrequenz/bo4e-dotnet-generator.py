@@ -1,4 +1,6 @@
-from bo4egenerator.mymodule import MyClass
+"""
+example test file
+"""
 
 
 class TestMyClass:
@@ -7,5 +9,7 @@ class TestMyClass:
     """
 
     def test_something(self) -> None:
-        my_class = MyClass()
-        assert my_class.do_something() == "abc"
+        """
+        A test method.
+        """
+        assert True

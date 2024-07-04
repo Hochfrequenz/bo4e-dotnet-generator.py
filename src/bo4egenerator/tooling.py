@@ -2,7 +2,7 @@ import subprocess
 from pathlib import Path
 
 
-def run_command(command: str, cwd: Path | None = None):
+def run_command(command: str, cwd: Path | None = None) -> subprocess.CompletedProcess[str]:
     result = subprocess.run(command, shell=True, cwd=cwd, text=True, capture_output=True)
     if result.returncode != 0:
         print(f"Command failed: {command}")
@@ -10,7 +10,7 @@ def run_command(command: str, cwd: Path | None = None):
     return result
 
 
-def install_bo4e_schema_tool():
+def install_bo4e_schema_tool() -> None:
     # the installation step of bost shall be done at this point, because bost is a dependency of this project
     run_command("bost -o ./schemas/")
     print("BO4E-Schema-Tool installation and schema downloading completed.")
