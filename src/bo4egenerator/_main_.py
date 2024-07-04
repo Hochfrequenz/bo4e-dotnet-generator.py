@@ -1,4 +1,5 @@
 """
+contains CLI logic for bo4egenerator.
 this is the main entry point for the bo4e-generator. It generates C# classes from the BO4E schema files.
 """
 import os
