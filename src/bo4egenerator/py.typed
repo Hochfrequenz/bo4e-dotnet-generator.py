@@ -1,2 +1,2 @@
-# This file marks bo4egenerator as PEP561 compatible.
+# This file marks bo4e-dotnet-generator as PEP561 compatible.
 # Further reading: https://mypy.readthedocs.io/en/stable/installed_packages.html#creating-pep-561-compatible-packages

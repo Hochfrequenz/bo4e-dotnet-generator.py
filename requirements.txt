@@ -7,7 +7,7 @@
 annotated-types==0.7.0
     # via pydantic
 bo4e-schema-tool==0.0.7
-    # via bo4egenerator (pyproject.toml)
+    # via bo4e-dotnet-generator (pyproject.toml)
 certifi==2024.7.4
     # via requests
 cffi==1.16.0
@@ -57,7 +57,7 @@ rich==13.7.1
 shellingham==1.5.4
     # via typer
 typer==0.12.3
-    # via bo4egenerator (pyproject.toml)
+    # via bo4e-dotnet-generator (pyproject.toml)
 typing-extensions==4.12.2
     # via
     #   pydantic

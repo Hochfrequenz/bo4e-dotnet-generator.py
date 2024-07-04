@@ -39,8 +39,16 @@ def main() -> None:
     # Generate C# classes
     generate_csharp_classes(Path(project_root), Path(schemas_dir), Path(output_dir), quicktype_executable)
 
+def cli() -> None:
+    """entry point of the script defined in pyproject.toml"""
+    # ⚠ If you ever change the name of this module (cli.py) or this function (def cli), be sure to update pyproject.toml
+    app()
+
 
 if __name__ == "__main__":
+    # this path is relevant when coming from the standalone executable.
+    # the tox.ini build_executable workflow refers to this file only
+    # (and - other than the pyproject.toml - not to the cli function directly)
     print("Starting the script...")
-    main()
+    cli()
     print("Script execution completed.")
