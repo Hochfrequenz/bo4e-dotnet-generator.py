@@ -1,6 +1,7 @@
 """
 It generates C# classes from the BO4E schema files with help od Quicktype npm package.
 """
+
 import os
 import subprocess
 from datetime import datetime

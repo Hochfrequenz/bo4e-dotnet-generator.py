@@ -1,6 +1,7 @@
 """
 tooling module contains helper functions for the bo4e-generator.
 """
+
 import subprocess
 from pathlib import Path
 
