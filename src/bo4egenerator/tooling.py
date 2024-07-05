@@ -5,6 +5,9 @@ tooling module contains helper functions for the bo4e-generator.
 import subprocess
 from pathlib import Path
 
+from bost.__main__ import main_command_line
+from click.testing import CliRunner
+
 
 def run_command(command: str, cwd: Path | None = None) -> subprocess.CompletedProcess[str]:
     """
@@ -27,5 +30,7 @@ def install_bo4e_schema_tool(schema_path: str) -> None:
     """
     the installation step of bost shall be done at this point, because bost is a dependency of this project
     """
-    run_command(f"bost -o {schema_path}")
+    # run_command(f"bost -o {schema_path}")
+    cli_runner = CliRunner()
+    _ = cli_runner.invoke(main_command_line, ["-o", schema_path])
     print("BO4E-Schema-Tool installation and schema downloading completed.")
