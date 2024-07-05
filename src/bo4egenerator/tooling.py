@@ -30,7 +30,19 @@ def running_bo4e_schema_tool(schema_path: str) -> None:
     """
     the installation step of bost shall be done at this point, because bost is a dependency of this project
     """
-    # run_command(f"bost -o {schema_path}")
-    cli_runner = CliRunner()
-    _ = cli_runner.invoke(main_command_line, ["-o", schema_path])
+
+    def _bost_is_installed() -> bool:
+        try:
+            from bost import main  # pylint: disable=import-outside-toplevel, unused-import
+
+            return True
+        except ImportError:
+            return False
+
+    if _bost_is_installed():
+        print("BO4E-Schema-Tool is already installed.")
+        cli_runner = CliRunner()
+        _ = cli_runner.invoke(main_command_line, ["-o", schema_path])
+    else:
+        run_command(f"bost -o {schema_path}")
     print("BO4E-Schema-Tool installation and schema downloading completed.")
