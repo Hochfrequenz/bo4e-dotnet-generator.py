@@ -8,9 +8,9 @@ from datetime import datetime
 from pathlib import Path
 
 
-def generate_csharp_classes(
+def generate_csharp_classes(  # pylint: disable=too-many-locals
     project_root: Path, schemas_dir: Path, output_dir: Path, quicktype_executable: str
-) -> None:  # pylint: disable=too-many-locals
+) -> None:
     """
     Generate C# classes from the BO4E schema files with help of Quicktype npm package.
     Args:
