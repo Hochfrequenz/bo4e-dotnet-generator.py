@@ -27,6 +27,13 @@ dynamic = ["readme", "version"]
 Changelog = "https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/releases"
 Homepage = "https://github.com/Hochfrequenz/bo4e-dotnet-generator.py"
 
+[project.scripts]
+bo4e-dotnet-generator = "bo4egenerator.cli:cli"
+# bo4egenerator is the package in the src directory
+# .cli means the cli.py module inside the bo4e-dotnet-generator package
+# :cli means the cli function inside the cli.py module
+
+
 [tool.black]
 line-length = 120
 target_version = ["py311", "py312"]
@@ -56,7 +63,7 @@ fragments = [{ path = "README.md" }]
 source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
-version-file = "src/_bo4egenerator_version.py"
+version-file = "src/_bo4e-dotnet-generator_version.py"
 template = '''
 version = "{version}"
 '''
