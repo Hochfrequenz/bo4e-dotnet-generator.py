@@ -22,3 +22,7 @@ pip install bo4e-dotnet-generator
 Please follow the instructions in our
 [Python Template Repository](https://github.com/Hochfrequenz/python_template_repository#how-to-use-this-repository-on-your-machine).
 And for further information, see the [Tox Repository](https://github.com/tox-dev/tox).
+
+### Quicktype Executable Path
+
+This script checks the `APPDATA` environment variable to find the `Quicktype.cmd` npm package in the AppData path on Windows.
