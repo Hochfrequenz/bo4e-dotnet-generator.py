@@ -9,6 +9,7 @@ from pathlib import Path
 
 import typer
 
+from bo4egenerator.duplicates import process_directory
 from bo4egenerator.generator import generate_csharp_classes
 from bo4egenerator.tooling import running_bo4e_schema_tool
 
@@ -38,6 +39,9 @@ def main() -> None:
 
     # Generate C# classes
     generate_csharp_classes(Path(project_root), Path(schemas_dir), Path(output_dir), quicktype_executable)
+    
+    # Remove duplicate class and enum definitions
+    process_directory(output_dir)
 
 
 def cli() -> None:
