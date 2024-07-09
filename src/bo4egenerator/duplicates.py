@@ -22,15 +22,12 @@ def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str
     classes: list[str] = []
     enums: list[str] = []
 
-    try:
-        with open(file_path, "r", encoding="utf-8") as file:
-            content = file.read()
-            class_matches = class_pattern.findall(content)
-            enum_matches = enum_pattern.findall(content)
-            classes.extend(class_matches)
-            enums.extend(enum_matches)
-    except (PermissionError, OSError) as e:
-        print(f"Error reading file {file_path}: {e}")
+    with open(file_path, "r", encoding="utf-8") as file:
+        content = file.read()
+        class_matches = class_pattern.findall(content)
+        enum_matches = enum_pattern.findall(content)
+        classes.extend(class_matches)
+        enums.extend(enum_matches)
 
     return classes, enums
 
