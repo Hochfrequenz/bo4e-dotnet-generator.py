@@ -3,8 +3,8 @@ Remove duplicate class and enum definitions from the generated files.
 """
 
 import os
-from pathlib import Path
 import re
+from pathlib import Path
 
 
 def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str]]:
