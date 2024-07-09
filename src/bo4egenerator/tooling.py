@@ -45,7 +45,7 @@ def running_bo4e_schema_tool(schema_path: str) -> None:
     def _recent_files_exist(folder: str, minutes: int) -> bool:
         now = datetime.datetime.now()
         cutoff = now - datetime.timedelta(minutes=minutes)
-        for root, dirs, files in os.walk(folder):
+        for root, _, files in os.walk(folder):
             for file in files:
                 file_path = os.path.join(root, file)
                 file_mtime = datetime.datetime.fromtimestamp(os.path.getmtime(file_path))
@@ -55,7 +55,8 @@ def running_bo4e_schema_tool(schema_path: str) -> None:
 
     if _recent_files_exist(schema_path, 30):
         print(
-            f"BO JSON schema files in '{schema_path}' have been already downloaded in the last 30 minutes. Skipping download."
+            f"BO JSON schema files in '{schema_path}' have been already downloaded in the last 30 minutes."
+            + "Skipping download."
         )
     else:
         if _bost_is_installed():

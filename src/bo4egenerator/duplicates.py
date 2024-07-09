@@ -1,8 +1,10 @@
+"""
+Remove duplicate class and enum definitions from the generated files.
+"""
+
 import os
 from pathlib import Path
 import re
-from collections import defaultdict
-import shutil
 
 
 def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str]]:
@@ -33,7 +35,7 @@ def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str
     return classes, enums
 
 
-def remove_definitions(
+def remove_definitions(  # pylint: disable=too-many-locals, too-many-branches
     file_path: Path, main_class_name: str, classes_to_remove: list[str], enums_to_remove: list[str]
 ) -> None:
     """
@@ -70,7 +72,7 @@ def remove_definitions(
             if comment_block_start_index is None:
                 comment_block_start_index = index
             continue
-        elif comment_block_start_index is not None and not re.match(r"\s*///", line):
+        if comment_block_start_index is not None and not re.match(r"\s*///", line):
             comment_block_start_index = None
 
         if re.match(r"\s*public\s+partial\s+class\s+\w+", line):
@@ -131,7 +133,7 @@ def process_directory(directory_path: Path) -> None:
                 classes_to_remove = [
                     class_name for class_name in classes_in_file if class_name != class_name_from_filename
                 ]
-                enums_to_remove = [enum_name for enum_name in enums_in_file]
+                enums_to_remove = list(enums_in_file)
 
                 for class_name in classes_to_remove:
                     class_file_path_bo = os.path.join(directory_path, "bo", f"{class_name}.cs")
