@@ -118,16 +118,15 @@ def remove_definitions(  # pylint: disable=too-many-locals, too-many-branches
 def process_directory(directory_path: Path) -> None:
     """
     Process all files in the directory to remove duplicate class and enum definitions.
-
     Args:
-        directory_path (str): The path to the directory.
+        directory_path (Path): The path to the directory.
     """
     for root, _, files in os.walk(directory_path):
         for filename in files:
             if filename.endswith(".cs"):
-                file_path = os.path.join(root, filename)
-                class_name_from_filename = os.path.splitext(filename)[0]
-                classes_in_file, enums_in_file = find_classes_and_enums_in_file(Path(file_path))
+                file_path = Path(root) / filename
+                class_name_from_filename = file_path.stem
+                classes_in_file, enums_in_file = find_classes_and_enums_in_file(file_path)
 
                 # Exclude the main class that matches the filename
                 classes_to_remove = [
@@ -136,18 +135,18 @@ def process_directory(directory_path: Path) -> None:
                 enums_to_remove = list(enums_in_file)
 
                 for class_name in classes_to_remove:
-                    class_file_path_bo = os.path.join(directory_path, "bo", f"{class_name}.cs")
-                    class_file_path_com = os.path.join(directory_path, "com", f"{class_name}.cs")
+                    class_file_path_bo = directory_path / "bo" / f"{class_name}.cs"
+                    class_file_path_com = directory_path / "com" / f"{class_name}.cs"
 
-                    if os.path.exists(class_file_path_bo) or os.path.exists(class_file_path_com):
+                    if class_file_path_bo.exists() or class_file_path_com.exists():
                         print(f"Removing class {class_name} from {file_path}")
-                        remove_definitions(Path(file_path), class_name_from_filename, [class_name], [])
+                        remove_definitions(file_path, class_name_from_filename, [class_name], [])
 
                 for enum_name in enums_to_remove:
-                    enum_file_path = os.path.join(directory_path, "enum", f"{enum_name}.cs")
+                    enum_file_path = directory_path / "enum" / f"{enum_name}.cs"
 
-                    if os.path.exists(enum_file_path):
+                    if enum_file_path.exists():
                         print(f"Removing enum {enum_name} from {file_path}")
-                        remove_definitions(Path(file_path), class_name_from_filename, [], [enum_name])
+                        remove_definitions(file_path, class_name_from_filename, [], [enum_name])
 
                 print(f"Processed {file_path}")
