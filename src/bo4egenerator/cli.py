@@ -39,7 +39,7 @@ def main() -> None:
 
     # Generate C# classes
     generate_csharp_classes(Path(project_root), Path(schemas_dir), Path(output_dir), quicktype_executable)
-    
+
     # Remove duplicate class and enum definitions
     process_directory(Path(output_dir))
 
