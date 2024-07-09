@@ -19,8 +19,8 @@ def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str
     """
     class_pattern = re.compile(r"\bpublic\s+partial\s+class\s+(\w+)")
     enum_pattern = re.compile(r"\bpublic\s+enum\s+(\w+)")
-    classes : list[str] = []
-    enums : list[str] = []
+    classes: list[str] = []
+    enums: list[str] = []
 
     try:
         with open(file_path, "r", encoding="utf-8") as file:
