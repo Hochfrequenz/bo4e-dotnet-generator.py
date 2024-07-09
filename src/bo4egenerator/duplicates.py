@@ -51,9 +51,23 @@ def remove_definitions(file_path, main_class_name, classes_to_remove, enums_to_r
     definitions = {}
     current_definition = None
     definition_start_index = 0
+    comment_block_start_index = None
+
+    def find_comment_block_start(index):
+        """Find the start index of the comment block preceding the definition."""
+        while index > 0 and re.match(r'\s*///', lines[index-1]):
+            index -= 1
+        return index
 
     # Read the file line by line and identify class and enum definitions
     for index, line in enumerate(lines):
+        if re.match(r'\s*///', line) and not in_definition:
+            if comment_block_start_index is None:
+                comment_block_start_index = index
+            continue
+        elif comment_block_start_index is not None and not re.match(r'\s*///', line):
+            comment_block_start_index = None
+
         if re.match(r'\s*public\s+partial\s+class\s+\w+', line):
             class_name = re.findall(r'\bpublic\s+partial\s+class\s+(\w+)', line)[0]
             if class_name == main_class_name:
@@ -62,12 +76,12 @@ def remove_definitions(file_path, main_class_name, classes_to_remove, enums_to_r
                 continue
             current_definition = class_name
             in_definition = True
-            definition_start_index = index
+            definition_start_index = find_comment_block_start(index) if comment_block_start_index is not None else index
         elif re.match(r'\s*public\s+enum\s+\w+', line):
             enum_name = re.findall(r'\bpublic\s+enum\s+(\w+)', line)[0]
             current_definition = enum_name
             in_definition = True
-            definition_start_index = index
+            definition_start_index = find_comment_block_start(index) if comment_block_start_index is not None else index
 
         if in_definition:
             if re.match(r'\s*\}', line):
@@ -79,6 +93,11 @@ def remove_definitions(file_path, main_class_name, classes_to_remove, enums_to_r
     for name in classes_to_remove + enums_to_remove:
         if name in definitions:
             start, end = definitions[name]
+            # Check for leading empty lines and comments
+            while start > 0 and re.match(r'^\s*$', lines[start - 1]):
+                start -= 1
+            while start > 0 and re.match(r'\s*///', lines[start - 1]):
+                start -= 1
             lines[start:end+1] = []
 
     # Write the cleaned content back to the file
@@ -87,6 +106,7 @@ def remove_definitions(file_path, main_class_name, classes_to_remove, enums_to_r
             file.writelines(lines)
     except (PermissionError, OSError) as e:
         print(f"Error writing to file {file_path}: {e}")
+
 
 def process_directory(directory_path):
     """
