@@ -12,6 +12,7 @@ from click.testing import CliRunner
 
 from bo4egenerator.configuration.log_setup import _logger
 
+
 def run_command(command: str, cwd: Path | None = None) -> subprocess.CompletedProcess[str]:
     """
     Run a shell command and return the result.
@@ -57,7 +58,7 @@ def running_bo4e_schema_tool(schema_path: str) -> None:
     if _recent_files_exist(schema_path, 30):
         _logger.info(
             "BO JSON schema files in '%s' have been already downloaded in the last 30 minutes. Skipping download.",
-            schema_path
+            schema_path,
         )
     else:
         if _bost_is_installed():

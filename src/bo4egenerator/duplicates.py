@@ -8,6 +8,7 @@ from pathlib import Path
 
 from bo4egenerator.configuration.log_setup import _logger
 
+
 def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str]]:
     """
     Find all partial class and enum definitions in a given file.

@@ -10,7 +10,7 @@ _logger = logging.getLogger(__name__)
 _logger.setLevel(GLOBAL_LOG_LEVEL)
 
 # Ensure the logs directory exists
-log_directory = Path(__file__).parent / 'logs'
+log_directory = Path(__file__).parent / "logs"
 log_directory.mkdir(exist_ok=True)
 
 # Create a file handler that logs even debug messages

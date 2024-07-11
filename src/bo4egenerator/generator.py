@@ -8,6 +8,7 @@ from pathlib import Path
 
 from bo4egenerator.configuration.log_setup import _logger
 
+
 def generate_csharp_classes(  # pylint: disable=too-many-locals
     project_root: Path, schemas_dir: Path, output_dir: Path, quicktype_executable: str
 ) -> None:
@@ -65,7 +66,7 @@ def generate_csharp_classes(  # pylint: disable=too-many-locals
                 ]
 
                 # Debugging: Print the command to be executed
-                _logger.info("Running command: %s", ' '.join(command))
+                _logger.info("Running command: %s", " ".join(command))
 
                 try:
                     # Execute the command
@@ -73,7 +74,7 @@ def generate_csharp_classes(  # pylint: disable=too-many-locals
                     _logger.info(result.stdout)
                 except subprocess.CalledProcessError as e:
                     # Log the error and continue with the next file
-                    _logger.error("Error running command: %s\n", ' '.join(command))
+                    _logger.error("Error running command: %s\n", " ".join(command))
                     _logger.error("Error message: %s\n", e)
                     _logger.error("Standard Error Output: %s\n\n", e.stderr)
                     _logger.error("Error encountered. Logged and continuing with the next file.")
