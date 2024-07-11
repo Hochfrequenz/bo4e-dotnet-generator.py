@@ -9,6 +9,7 @@ from pathlib import Path
 
 import typer
 
+from bo4egenerator.configuration.log_setup import _logger
 from bo4egenerator.duplicates import process_directory
 from bo4egenerator.generator import generate_csharp_classes
 from bo4egenerator.tooling import running_bo4e_schema_tool
@@ -51,6 +52,6 @@ def cli() -> None:
 
 
 if __name__ == "__main__":
-    print("Starting the script...")
+    _logger.info("Starting the script...")
     cli()
-    print("Script execution completed.")
+    _logger.info("Script execution completed.")
