@@ -50,7 +50,7 @@ def remove_definitions(  # pylint: disable=too-many-locals, too-many-branches
         with open(file_path, "r", encoding="utf-8") as file:
             lines = file.readlines()
     except (PermissionError, OSError) as e:
-        _logger.error(f"Error reading file {file_path}: {e}")
+        _logger.error("Error reading file %s: %s", file_path, e)
         return
 
     in_definition = False
@@ -111,7 +111,7 @@ def remove_definitions(  # pylint: disable=too-many-locals, too-many-branches
         with open(file_path, "w", encoding="utf-8") as file:
             file.writelines(lines)
     except (PermissionError, OSError) as e:
-        _logger.error(f"Error writing to file {file_path}: {e}")
+        _logger.error("Error writing to file %s: %s", file_path, e)
 
 
 def process_directory(directory_path: Path) -> None:
