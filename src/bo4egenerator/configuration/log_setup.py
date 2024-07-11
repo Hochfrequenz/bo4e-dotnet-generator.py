@@ -6,7 +6,7 @@ from pathlib import Path
 GLOBAL_LOG_LEVEL = logging.INFO
 
 # Create a logger
-_logger = logging.getLogger(__name__)
+_logger = logging.getLogger()
 _logger.setLevel(GLOBAL_LOG_LEVEL)
 
 # Ensure the logs directory exists
@@ -23,13 +23,15 @@ _LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 formatter = logging.Formatter(_LOG_FORMAT)
 _filehandler.setFormatter(formatter)
 
-# Add the file handler to the logger
-_logger.addHandler(_filehandler)
-
 # Create a console handler
 console_handler = logging.StreamHandler()
 console_handler.setLevel(GLOBAL_LOG_LEVEL)
 console_handler.setFormatter(formatter)
 
-# Add the console handler to the logger
+# Clear existing handlers
+if _logger.hasHandlers():
+    _logger.handlers.clear()
+
+# Add the file and console handlers to the root logger
+_logger.addHandler(_filehandler)
 _logger.addHandler(console_handler)
