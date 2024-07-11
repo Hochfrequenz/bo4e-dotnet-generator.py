@@ -2,11 +2,14 @@
 Remove duplicate class and enum definitions from the generated files.
 """
 
+import logging
 import os
 import re
 from pathlib import Path
 
 from bo4egenerator.configuration.log_setup import _logger
+
+_logger = logging.getLogger(__name__)
 
 
 def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str]]:

@@ -3,6 +3,7 @@ contains CLI logic for bo4e-dotnet-generator.
 this is the main entry point for the bo4e-generator. It generates C# classes from the BO4E schema files.
 """
 
+import logging
 import os
 import platform
 from pathlib import Path
@@ -15,6 +16,7 @@ from bo4egenerator.generator import generate_csharp_classes
 from bo4egenerator.tooling import running_bo4e_schema_tool
 
 app = typer.Typer(help="It generates C# classes from the BO4E schema files.")
+_logger = logging.getLogger(__name__)
 
 
 @app.command()

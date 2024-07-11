@@ -2,11 +2,14 @@
 It generates C# classes from the BO4E schema files with help od Quicktype npm package.
 """
 
+import logging
 import os
 import subprocess
 from pathlib import Path
 
 from bo4egenerator.configuration.log_setup import _logger
+
+_logger = logging.getLogger(__name__)
 
 
 def generate_csharp_classes(  # pylint: disable=too-many-locals

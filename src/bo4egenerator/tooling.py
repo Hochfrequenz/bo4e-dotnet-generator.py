@@ -3,6 +3,7 @@ tooling module contains helper functions for the bo4e-generator.
 """
 
 import datetime
+import logging
 import os
 import subprocess
 from pathlib import Path
@@ -11,6 +12,8 @@ from bost.__main__ import main_command_line
 from click.testing import CliRunner
 
 from bo4egenerator.configuration.log_setup import _logger
+
+_logger = logging.getLogger(__name__)
 
 
 def run_command(command: str, cwd: Path | None = None) -> subprocess.CompletedProcess[str]:
