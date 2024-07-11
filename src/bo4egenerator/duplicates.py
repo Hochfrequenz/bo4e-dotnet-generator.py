@@ -2,9 +2,14 @@
 Remove duplicate class and enum definitions from the generated files.
 """
 
+import logging
 import os
 import re
 from pathlib import Path
+
+from bo4egenerator.configuration.log_setup import _logger
+
+_logger = logging.getLogger(__name__)
 
 
 def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str]]:
@@ -48,7 +53,7 @@ def remove_definitions(  # pylint: disable=too-many-locals, too-many-branches
         with open(file_path, "r", encoding="utf-8") as file:
             lines = file.readlines()
     except (PermissionError, OSError) as e:
-        print(f"Error reading file {file_path}: {e}")
+        _logger.error("Error reading file %s: %s", file_path, e)
         return
 
     in_definition = False
@@ -109,7 +114,7 @@ def remove_definitions(  # pylint: disable=too-many-locals, too-many-branches
         with open(file_path, "w", encoding="utf-8") as file:
             file.writelines(lines)
     except (PermissionError, OSError) as e:
-        print(f"Error writing to file {file_path}: {e}")
+        _logger.error("Error writing to file %s: %s", file_path, e)
 
 
 def process_directory(directory_path: Path) -> None:
@@ -136,14 +141,14 @@ def process_directory(directory_path: Path) -> None:
                     class_file_path_com = directory_path / "com" / f"{class_name}.cs"
 
                     if class_file_path_bo.exists() or class_file_path_com.exists():
-                        print(f"Removing class {class_name} from {file_path}")
+                        _logger.info("Removing class %s from %s", class_name, file_path)
                         remove_definitions(file_path, class_name_from_filename, [class_name], [])
 
                 for enum_name in enums_to_remove:
                     enum_file_path = directory_path / "enum" / f"{enum_name}.cs"
 
                     if enum_file_path.exists():
-                        print(f"Removing enum {enum_name} from {file_path}")
+                        _logger.info("Removing enum %s from %s", enum_name, file_path)
                         remove_definitions(file_path, class_name_from_filename, [], [enum_name])
 
-                print(f"Processed {file_path}")
+                _logger.info("Processed %s", file_path)

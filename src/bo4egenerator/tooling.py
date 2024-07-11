@@ -3,12 +3,17 @@ tooling module contains helper functions for the bo4e-generator.
 """
 
 import datetime
+import logging
 import os
 import subprocess
 from pathlib import Path
 
 from bost.__main__ import main_command_line
 from click.testing import CliRunner
+
+from bo4egenerator.configuration.log_setup import _logger
+
+_logger = logging.getLogger(__name__)
 
 
 def run_command(command: str, cwd: Path | None = None) -> subprocess.CompletedProcess[str]:
@@ -23,8 +28,8 @@ def run_command(command: str, cwd: Path | None = None) -> subprocess.CompletedPr
     """
     result = subprocess.run(command, shell=True, cwd=cwd, text=True, capture_output=True, check=True)
     if result.returncode != 0:
-        print(f"Command failed: {command}")
-        print(result.stderr)
+        _logger.error("Command failed: %s", command)
+        _logger.debug(result.stderr)
     return result
 
 
@@ -54,15 +59,15 @@ def running_bo4e_schema_tool(schema_path: str) -> None:
         return False
 
     if _recent_files_exist(schema_path, 30):
-        print(
-            f"BO JSON schema files in '{schema_path}' have been already downloaded in the last 30 minutes."
-            + "Skipping download."
+        _logger.info(
+            "BO JSON schema files in '%s' have been already downloaded in the last 30 minutes. Skipping download.",
+            schema_path,
         )
     else:
         if _bost_is_installed():
-            print("BO4E-Schema-Tool is already installed.")
+            _logger.debug("BO4E-Schema-Tool is already installed.")
             cli_runner = CliRunner()
             _ = cli_runner.invoke(main_command_line, ["-o", schema_path])
         else:
             run_command(f"bost -o {schema_path}")
-        print("BO4E-Schema-Tool installation and schema downloading completed.")
+        _logger.info("BO4E-Schema-Tool installation and schema downloading completed.")
