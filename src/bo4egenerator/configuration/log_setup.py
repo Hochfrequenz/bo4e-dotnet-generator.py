@@ -10,7 +10,7 @@ _logger = logging.getLogger(__name__)
 _logger.setLevel(GLOBAL_LOG_LEVEL)
 
 # Ensure the logs directory exists
-log_directory = Path(__file__).parent / "logs"
+log_directory = Path(__file__).parent / ".logs"
 log_directory.mkdir(exist_ok=True)
 
 # Create a file handler that logs even debug messages
@@ -33,6 +33,3 @@ console_handler.setFormatter(formatter)
 
 # Add the console handler to the logger
 _logger.addHandler(console_handler)
-
-# Configure the basic logging settings
-logging.basicConfig(level=GLOBAL_LOG_LEVEL, format=_LOG_FORMAT, handlers=[_filehandler, console_handler])
