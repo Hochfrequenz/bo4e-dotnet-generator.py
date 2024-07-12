@@ -9,8 +9,8 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-import bo4egenerator.generator as generator
 
+from bo4egenerator import generator # pylint: disable=wrong-import-position
 
 class TestGenerator(unittest.TestCase):
     """
