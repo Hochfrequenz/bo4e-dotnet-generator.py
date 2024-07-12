@@ -27,7 +27,7 @@ class TestGenerator(unittest.TestCase):
         """
         project_root = Path.cwd() / "unittests" / "test-data"
         schemas_dir = project_root / "schemas"
-        output_dir = project_root / "output_dir"
+        output_dir = project_root / "generated-classes"
         # Determine the Quicktype executable path based on the operating system
         path_app_data = os.getenv("APPDATA")
         if platform.system() == "Windows" and path_app_data:
