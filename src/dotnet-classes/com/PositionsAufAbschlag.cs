@@ -122,16 +122,7 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Festlegung, ob der Auf- oder Abschlag mit relativen oder absoluten Werten erfolgt.
-    /// </summary>
-    public enum AufAbschlagstyp { Absolut, Relativ };
 
-    /// <summary>
-    /// In diesem Enum werden die Währungen und ihre Untereinheiten definiert, beispielsweise für
-    /// die Verwendung in Preisen.
-    /// </summary>
-    public enum Waehrungseinheit { Ct, Eur };
 
     public partial class PositionsAufAbschlag
     {

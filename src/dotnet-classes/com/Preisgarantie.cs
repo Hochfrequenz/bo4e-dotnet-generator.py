@@ -107,15 +107,7 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Aufzählung der Möglichkeiten für die Vergabe von Preisgarantien
-    /// </summary>
-    public enum Preisgarantietyp { AllePreisbestandteileBrutto, AllePreisbestandteileNetto, NurEnergiepreis, PreisbestandteileOhneAbgaben };
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
     public partial class Preisgarantie
     {

@@ -112,26 +112,9 @@ namespace BO4EDotNet
 
 
 
-    /// <summary>
-    /// Aufzählung der Währungscodes.
-    /// </summary>
-    public enum Waehrungscode { Aed, Afn, All, Amd, Ang, Aoa, Ars, Aud, Awg, Azn, Bam, Bbd, Bdt, Bgn, Bhd, Bif, Bmd, Bnd, Bob, Bov, Brl, Bsd, Btn, Bwp, Byn, Byr, Bzd, Cad, Cdf, Che, Chf, Chw, Clf, Clp, Cny, Cop, Cou, Crc, Cuc, Cup, Cve, Czk, Djf, Dkk, Dop, Dzd, Egp, Ern, Etb, Eur, Fjd, Fkp, Gbp, Gel, Ghs, Gip, Gmd, Gnf, Gtq, Gyd, Hkd, Hnl, Hrk, Htg, Huf, Idr, Ils, Inr, Iqd, Irr, Isk, Jmd, Jod, Jpy, Kes, Kgs, Khr, Kmf, Kpw, Krw, Kwd, Kyd, Kzt, Lak, Lbp, Lkr, Lrd, Lsl, Ltl, Lyd, Mad, Mdl, Mga, Mkd, Mmk, Mnt, Mop, Mro, Mur, Mvr, Mwk, Mxn, Mxv, Myr, Mzn, Nad, Ngn, Nio, Nok, Npr, Nzd, Omr, Pab, Pen, Pgk, Php, Pkr, Pln, Pyg, Qar, Ron, Rsd, Rub, Rur, Rwf, Sar, Sbd, Scr, Sdg, Sek, Sgd, Shp, Sll, Sos, Srd, Ssp, Std, Svc, Syp, Szl, Thb, Tjs, Tmt, Tnd, Top, Try, Ttd, Twd, Tzs, Uah, Ugx, Usd, Usn, Uss, Uyi, Uyu, Uzs, Vef, Vnd, Vuv, Wst, Xaf, Xag, Xau, Xba, Xbb, Xbc, Xbd, Xcd, Xdr, Xof, Xpd, Xpf, Xpt, Xsu, Xts, Xua, Xxx, Yer, Zar, Zmw, Zwl };
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
-    /// <summary>
-    /// In diesem Enum werden die Währungen und ihre Untereinheiten definiert, beispielsweise für
-    /// die Verwendung in Preisen.
-    /// </summary>
-    public enum Waehrungseinheit { Ct, Eur };
 
-    /// <summary>
-    /// Statusinformation für Preise
-    /// </summary>
-    public enum Preisstatus { Endgueltig, Vorlaeufig };
 
     public partial class Fremdkostenblock
     {

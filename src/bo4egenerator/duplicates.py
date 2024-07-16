@@ -34,6 +34,8 @@ def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str
         classes.extend(class_matches)
         enums.extend(enum_matches)
 
+    _logger.debug("Classes found: %s", classes)
+    _logger.debug("Enums found: %s", enums)
     return classes, enums
 
 
@@ -68,6 +70,9 @@ def remove_definitions(  # pylint: disable=too-many-locals, too-many-branches
             index -= 1
         return index
 
+    # Regular expression for single-line enums
+    single_line_enum_pattern = re.compile(r"\s*public\s+enum\s+\w+\s*{[^}]*}\s*;")
+
     # Read the file line by line and identify class and enum definitions
     for index, line in enumerate(lines):
         if re.match(r"\s*///", line) and not in_definition:
@@ -87,6 +92,18 @@ def remove_definitions(  # pylint: disable=too-many-locals, too-many-branches
             in_definition = True
             definition_start_index = find_comment_block_start(index) if comment_block_start_index is not None else index
         elif re.match(r"\s*public\s+enum\s+\w+", line):
+            if single_line_enum_pattern.match(line):
+                enum_name = re.findall(r"\bpublic\s+enum\s+(\w+)", line)[0]
+                current_definition = enum_name
+                definition_start_index = (
+                    find_comment_block_start(index) if comment_block_start_index is not None else index
+                )
+                definitions[current_definition] = (definition_start_index, index)
+                _logger.debug(
+                    "Single-line enum found: %s at lines %d to %d", current_definition, definition_start_index, index
+                )
+                continue
+
             enum_name = re.findall(r"\bpublic\s+enum\s+(\w+)", line)[0]
             current_definition = enum_name
             in_definition = True
@@ -95,6 +112,12 @@ def remove_definitions(  # pylint: disable=too-many-locals, too-many-branches
         if in_definition:
             if re.match(r"\s*\}", line):
                 definitions[current_definition] = (definition_start_index, index)
+                _logger.debug(
+                    "Multi-line definition found: %s at lines %d to %d",
+                    current_definition,
+                    definition_start_index,
+                    index,
+                )
                 in_definition = False
                 current_definition = None
 
@@ -107,6 +130,7 @@ def remove_definitions(  # pylint: disable=too-many-locals, too-many-branches
                 start -= 1
             while start > 0 and re.match(r"\s*///", lines[start - 1]):
                 start -= 1
+            _logger.debug("Removing definition: %s from lines %d to %d", name, start, end)
             lines[start : end + 1] = []
 
     # Write the cleaned content back to the file

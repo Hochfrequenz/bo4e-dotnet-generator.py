@@ -111,21 +111,8 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
-    /// <summary>
-    /// In diesem Enum werden die Währungen und ihre Untereinheiten definiert, beispielsweise für
-    /// die Verwendung in Preisen.
-    /// </summary>
-    public enum Waehrungseinheit { Ct, Eur };
 
-    /// <summary>
-    /// Statusinformation für Preise
-    /// </summary>
-    public enum Preisstatus { Endgueltig, Vorlaeufig };
 
     public partial class Preis
     {

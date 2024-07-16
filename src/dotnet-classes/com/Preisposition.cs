@@ -171,39 +171,8 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// BDEW Artikelnummern
-    /// </summary>
-    public enum BdewArtikelnummer { AbgabeKwkg, Abschlag, Ausgleichsenergie, AusgleichsenergieUnterdeckung, Befestigungseinrichtung, Blindmehrarbeit, Blindmehrleistung, Energiesteuer, EntgeltAbrechnung, EntgeltEinbauBetriebWartungMesstechnik, EntgeltFernauslesung, EntgeltMessungAblesung, Entsperrkosten, FixeArbeitsentgeltkomponente, FixeLeistungsentgeltkomponente, Grundpreis, Inkassokosten, Kommunikationseinrichtung, Konzessionsabgabe, Leistung, LeistungPauschal, Mahnkosten, MehrMindermengen, Mehrmenge, Mindermenge, MsbInklMessung, NotstromlieferungArbeit, NotstromlieferungLeistung, OffshoreHaftungsumlage, Paragraf19_StromNevUmlage, PruefgebuehrenAusserplanmaessig, RegelenergieArbeit, RegelenergieLeistung, Reserveleistung, Reservenetzkapazitaet, SingulaerGenutzteBetriebsmittel, SmartmeterGateway, Sperrkosten, Steuerbox, TechnischeSteuereinrichtung, UmlageAbschaltbareLasten, Untermessung, WandlerMengenumwerter, Wirkarbeit, Zaehleinrichtung, ZusaetzlicheAblesung };
 
-    /// <summary>
-    /// Auflistung der verschiedenen Berechnungsmethoden für ein Preisblatt.
-    /// </summary>
-    public enum Kalkulationsmethode { ApGpZonen, ApTransportOderVerteilnetz, ApTransportOderVerteilnetzOrtsverteilnetzSigmoid, BlindarbeitGt40_Prozent, BlindarbeitGt50_Prozent, BlindarbeitMitFreimenge, Funktionen, LpInstallLeistung, LpJahresverbrauch, LpTransportOderVerteilnetz, LpTransportOderVerteilnetzOrtsverteilnetzSigmoid, Sigmoid, Stufen, VerbrauchUeberSlpGrenzeFunktionsbezogenWeitereBerechnungAlsLgk, VorzonenGp, Zonen };
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
-
-    public enum Leistungstyp { AblavUmlage, AblesungZusaetzlich, Abrechnung, AbrechnungZusaetzlich, ArbeitspreisBlindarbeitInd, ArbeitspreisBlindarbeitKap, ArbeitspreisWirkarbeit, AuslesungZusaetzlich, BilanzierungUmlage, Dienstleistung, EegUmlage, Energiesteuer, Entsperrung, Grundpreis, GrundpreisArbeit, GrundpreisLeistung, Inkassokosten, KonzessionsAbgabe, KwkUmlage, LeistungspreisWirkleistung, Mahnkosten, Mehrmindermenge, Messdienstleistung, MessdienstleistungInklMessung, Messpreis, Messstellenbetrieb, Netzpreis, OffshoreUmlage, RegelenergieUmlage, SonderkundenUmlage, SonstigerPreis, Sperrung };
-
-    /// <summary>
-    /// In diesem Enum werden die Währungen und ihre Untereinheiten definiert, beispielsweise für
-    /// die Verwendung in Preisen.
-    /// </summary>
-    public enum Waehrungseinheit { Ct, Eur };
-
-    /// <summary>
-    /// Zur Kennzeichnung verschiedener Tarifzeiten, beispielsweise zur Bepreisung oder zur
-    /// Verbrauchsermittlung.
-    /// </summary>
-    public enum Tarifzeit { TzHt, TzNt, TzStandard };
-
-    /// <summary>
-    /// Zur Abbildung von Messgrössen und zur Verwendung in energiewirtschaftlichen Berechnungen.
-    /// </summary>
-    public enum Bemessungsgroesse { Anzahl, Benutzungsdauer, BlindarbeitInd, BlindarbeitKap, BlindleistungInd, BlindleistungKap, LeistungEl, LeistungTh, Volumen, Volumenstrom, WirkarbeitEl, WirkarbeitTh };
 
     public partial class Preisposition
     {

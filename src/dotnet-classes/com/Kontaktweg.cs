@@ -112,10 +112,6 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Gibt an, auf welchem Weg die Person oder der Geschäftspartner kontaktiert werden kann.
-    /// </summary>
-    public enum Kontaktart { EMail, Fax, Postweg, Sms, Telefon };
 
     public partial class Kontaktweg
     {

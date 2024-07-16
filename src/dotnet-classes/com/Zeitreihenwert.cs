@@ -113,16 +113,7 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Der Status eines Zählerstandes
-    /// </summary>
-    public enum Messwertstatus { Abgelesen, AngabeFuerLieferschein, Energiemengesummiert, Ersatzwert, Fehlt, NichtVerwendbar, Prognosewert, Vorlaeufigerwert, Vorschlagswert };
 
-    /// <summary>
-    /// Aufzählung von zusätzlichen Informationen zum Status, beispielsweise in Lastgängen oder
-    /// Zählwerkständen.
-    /// </summary>
-    public enum Messwertstatuszusatz { Z74Keinzugang, Z75Kommunikationsstoerung, Z76Netzausfall, Z77Spannungsausfall, Z78Geraetewechsel, Z79Kalibrierung, Z80Geraetarbeitetausserhalbderbetriebsbedingungen, Z81MesseinrichtunggestoertDefekt, Z82Unsicherheitmessung, Z84Leerstand, Z85Realerzaehlerueberlaufgeprueft, Z86Plausibelwgkontrollablesung, Z87Plausibelwgkundenhinweis, Z88VergleichsmessungGeeicht, Z89VergleichsmessungNichtgeeicht, Z90Messwertnachbildungausgeeichtenwerten, Z91Messwertnachbildungausnichtgeeichtenwerten, Z92Interpolation, Z93Haltewert, Z94Bilanzierungnetzabschnitt, Z95Historischemesswerte, Z98Beruecksichtigungstoermengenzaehlwerk, Z99Mengenumwertungunvollstaendig, Za0UhrzeitgestelltSynchronisation, Za1Messwertunplausibel, Za3Falscherwandlerfaktor, Za4Fehlerhafteablesung, Za5Aenderungderberechnung, Za6Umbaudermesslokation, Za7Datenbearbeitungsfehler, Za8Brennwertkorrektur, Za9ZZahlKorrektur, Zb0StoerungDefektmesseinrichtung, Zb9Aenderungtarifschaltzeiten, Zc2Tarifschaltgeraetdefekt, Zc3Austauschdesersatzwertes, Zc4Impulswertigkeitnichtausreichend, Zg3Umstellunggasqualitaet, Zj2Statistischemethode };
 
     public partial class Zeitreihenwert
     {
