@@ -145,7 +145,7 @@ def process_directory(directory_path: Path) -> None:
                         remove_definitions(file_path, class_name_from_filename, [class_name], [])
 
                 for enum_name in enums_to_remove:
-                    enum_file_path = directory_path / "enums" / f"{enum_name}.cs"
+                    enum_file_path = directory_path / "enum" / f"{enum_name}.cs"
 
                     if enum_file_path.exists():
                         _logger.info("Removing enum %s from %s", enum_name, file_path)
