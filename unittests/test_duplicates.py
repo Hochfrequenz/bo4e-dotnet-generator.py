@@ -11,7 +11,7 @@ from bo4egenerator import duplicates  # pylint: disable=wrong-import-position
 
 class TestRemoveDuplicateDefinitions(unittest.TestCase):
     def setUp(self) -> None:
-        self.temp_dir = TemporaryDirectory()
+        self.temp_dir = TemporaryDirectory()  # pylint: disable=consider-using-with
 
         project_root = Path.cwd() / "unittests" / "test-data"
         # Path to the source directory containing the generated C# files with quicktype
