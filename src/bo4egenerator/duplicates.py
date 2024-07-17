@@ -36,7 +36,7 @@ def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str
     return classes, enums
 
 
-def remove_definitions(
+def remove_duplicate_definitions(  # pylint: disable=too-many-locals, too-many-branches, too-many-statements
     file_path: Path, main_class_name: str, classes_to_remove: list[str], enums_to_remove: list[str]
 ) -> None:
     """
@@ -157,13 +157,23 @@ def process_directory(directory_path: Path) -> None:
 
                     if class_file_path_bo.exists() or class_file_path_com.exists():
                         _logger.info("Removing class %s from %s", class_name, file_path)
-                        remove_definitions(file_path, class_name_from_filename, [class_name], [])
+                        remove_duplicate_definitions(
+                            file_path,
+                            main_class_name=class_name_from_filename,
+                            classes_to_remove=[class_name],
+                            enums_to_remove=[],
+                        )
 
                 for enum_name in enums_to_remove:
                     enum_file_path = directory_path / "enum" / f"{enum_name}.cs"
 
                     if enum_file_path.exists():
                         _logger.info("Removing enum %s from %s", enum_name, file_path)
-                        remove_definitions(file_path, class_name_from_filename, [], [enum_name])
+                        remove_duplicate_definitions(
+                            file_path,
+                            main_class_name=class_name_from_filename,
+                            classes_to_remove=[],
+                            enums_to_remove=[enum_name],
+                        )
 
                 _logger.info("Processed %s", file_path)
