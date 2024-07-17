@@ -136,3 +136,4 @@ dmypy.json
 src/_your_package_version.py
 
 src/schemas/
+src/generated-dotnet-classes/

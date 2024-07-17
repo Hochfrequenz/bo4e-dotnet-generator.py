@@ -6,6 +6,7 @@ this is the main entry point for the bo4e-generator. It generates C# classes fro
 import logging
 import os
 import platform
+import shutil
 from pathlib import Path
 
 import typer
@@ -26,10 +27,14 @@ def main(
     """
     It will use BO4E-Schema-Tool and
     generate C# classes from the BO4E schema files with help of Quicktype.
+
+    args:
+        output (Path): Output directory for the generated C# classes.
     """
     # Define the base directories
     project_root = Path.cwd()  # Root directory of the project
     schemas_dir = project_root / "schemas"
+    generated_output_dir = project_root / "generated-dotnet-classes"
 
     # Determine the Quicktype executable path based on the operating system
     path_app_data = os.getenv("APPDATA")
@@ -41,8 +46,13 @@ def main(
     # Install BO4E-Schema-Tool and generate schemas
     running_bo4e_schema_tool(str(schemas_dir))
 
-    # Generate C# classes
-    generate_csharp_classes(Path(project_root), Path(schemas_dir), output, quicktype_executable)
+    # Generate C# classes from the schemas
+    generate_csharp_classes(Path(project_root), Path(schemas_dir), generated_output_dir, quicktype_executable)
+
+    # Copy the generated files and subdirectories to the output directory
+    if output.exists():
+        shutil.rmtree(output)  # Remove existing output directory if it exists
+    shutil.copytree(generated_output_dir, output)  # Copy the generated output to the final output directory
 
     # Remove duplicate class and enum definitions
     process_directory(output)
