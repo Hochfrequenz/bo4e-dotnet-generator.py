@@ -130,21 +130,8 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
-    /// <summary>
-    /// Der Status eines Zählerstandes
-    /// </summary>
-    public enum Messwertstatus { Abgelesen, AngabeFuerLieferschein, Energiemengesummiert, Ersatzwert, Fehlt, NichtVerwendbar, Prognosewert, Vorlaeufigerwert, Vorschlagswert };
 
-    /// <summary>
-    /// Gibt an, ob es sich um eine Prognose oder eine Messung handelt, beispielsweise bei der
-    /// Abbildung eines Verbrauchs.
-    /// </summary>
-    public enum Wertermittlungsverfahren { Messung, Prognose };
 
     public partial class Verbrauch
     {

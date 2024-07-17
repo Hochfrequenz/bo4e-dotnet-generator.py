@@ -180,40 +180,12 @@ namespace BO4EDotNet
 
 
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
-    /// <summary>
-    /// Art der Konzessionsabgabe
-    /// </summary>
-    public enum AbgabeArt { Kas, Sa, Sas, Ta, Tas, Tk, Tks, Ts, Tss };
 
-    /// <summary>
-    /// Spezifiziert die Energierichtung einer Markt- und/oder Messlokation
-    /// </summary>
-    public enum Energierichtung { Aussp, Einsp };
 
-    /// <summary>
-    /// Verbrauchsart einer Marktlokation.
-    /// </summary>
-    public enum Verbrauchsart { Kl, Klw, Klws, W, Ws };
 
-    /// <summary>
-    /// Diese Rollen kann ein Marktteilnehmer einnehmen.
-    /// </summary>
-    public enum Marktrolle { Biko, Bkv, Btr, Dp, Eiv, Esa, Kn, Lf, Mgv, Msb, Nb, Rb, Uenb };
 
-    /// <summary>
-    /// Verwendungszweck der Werte Marktlokation
-    /// </summary>
-    public enum Verwendungszweck { Bilanzkreisabrechnung, Endkundenabrechnung, ErmittlungAusgeglichenheitBilanzkreis, Mehrmindermengenabrechnung, Netznutzungsabrechnung, UebermittlungAnDasHknr };
 
-    /// <summary>
-    /// Wärmenutzung Marktlokation
-    /// </summary>
-    public enum Waermenutzung { Direktheizung, Speicherheizung, Waermepumpe };
 
     public partial class Zaehlwerk
     {

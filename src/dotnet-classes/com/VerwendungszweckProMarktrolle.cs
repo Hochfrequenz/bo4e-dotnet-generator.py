@@ -101,15 +101,7 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Diese Rollen kann ein Marktteilnehmer einnehmen.
-    /// </summary>
-    public enum Marktrolle { Biko, Bkv, Btr, Dp, Eiv, Esa, Kn, Lf, Mgv, Msb, Nb, Rb, Uenb };
 
-    /// <summary>
-    /// Verwendungszweck der Werte Marktlokation
-    /// </summary>
-    public enum Verwendungszweck { Bilanzkreisabrechnung, Endkundenabrechnung, ErmittlungAusgeglichenheitBilanzkreis, Mehrmindermengenabrechnung, Netznutzungsabrechnung, UebermittlungAnDasHknr };
 
     public partial class VerwendungszweckProMarktrolle
     {

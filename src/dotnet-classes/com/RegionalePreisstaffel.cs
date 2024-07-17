@@ -122,15 +122,7 @@ namespace BO4EDotNet
     }
 
 
-    /// <summary>
-    /// Übersicht der verschiedenen Gültigkeiten zur Umsetzung von Positiv- bzw. Negativlisten.
-    /// </summary>
-    public enum Gueltigkeitstyp { NichtIn, NurIn, NurInKombinationMit };
 
-    /// <summary>
-    /// Mit diesen Kriterien können regionale Bereiche definiert werden.
-    /// </summary>
-    public enum Tarifregionskriterium { GrundversorgerNummer, NetzNummer, Ort, Postleitzahl, Region };
 
     public partial class RegionalePreisstaffel
     {

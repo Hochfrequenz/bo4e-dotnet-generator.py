@@ -100,10 +100,6 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Mit diesen Kriterien können regionale Bereiche definiert werden.
-    /// </summary>
-    public enum Tarifregionskriterium { GrundversorgerNummer, NetzNummer, Ort, Postleitzahl, Region };
 
     public partial class KriteriumWert
     {
