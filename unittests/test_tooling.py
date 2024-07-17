@@ -18,7 +18,7 @@ class TestTooling(unittest.TestCase):
     """
 
     @patch("subprocess.run")
-    def test_run_command(self, mock_run):
+    def test_run_command(self, mock_run: MagicMock) -> None:
         """
         Test the run_command method.
 

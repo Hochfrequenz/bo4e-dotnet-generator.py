@@ -11,7 +11,7 @@ from bo4egenerator import duplicates
 
 
 class TestRemoveDuplicateDefinitions(unittest.TestCase):
-    def setUp(self):
+    def setUp(self) -> None:
         self.temp_dir = TemporaryDirectory()
 
         project_root = Path.cwd() / "unittests" / "test-data"
@@ -21,10 +21,13 @@ class TestRemoveDuplicateDefinitions(unittest.TestCase):
         self.output_dir = Path(self.temp_dir.name) / "dotnet-classes"
         shutil.copytree(self.source_dir, self.output_dir, dirs_exist_ok=True)
 
-    def tearDown(self):
+    def tearDown(self) -> None:
         self.temp_dir.cleanup()
 
-    def test_remove_duplicate_definitions(self):
+    def test_remove_duplicate_definitions(self) -> None:
+        """
+        Test case for removing duplicate class and enum definitions from C# files.
+        """
         # Run the process_directory function on the test directory
         duplicates.process_directory(self.output_dir)
 

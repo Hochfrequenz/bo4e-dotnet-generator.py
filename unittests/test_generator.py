@@ -18,7 +18,7 @@ class TestGenerator(unittest.TestCase):
     Unit test class for the Generator module.
     """
 
-    def test_generate_csharp_classes(self):
+    def test_generate_csharp_classes(self) -> None:
         """
         Test case for generating C# classes using the `generate_csharp_classes` method.
 
