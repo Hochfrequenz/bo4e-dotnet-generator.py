@@ -11,6 +11,10 @@ from bo4egenerator.configuration.log_setup import _logger
 
 _logger = logging.getLogger(__name__)
 
+single_line_enum_pattern = re.compile(r"\s*public\s+enum\s+\w+\s*{[^}]*}\s*;")
+class_pattern = re.compile(r"\s*public\s+partial\s+class\s+(\w+)")
+enum_pattern = re.compile(r"\s*public\s+enum\s+(\w+)")
+
 
 def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str]]:
     """
@@ -22,10 +26,8 @@ def find_classes_and_enums_in_file(file_path: Path) -> tuple[list[str], list[str
     Returns:
         tuple: Two lists containing class names and enum names found in the file.
     """
-    class_pattern = re.compile(r"\bpublic\s+partial\s+class\s+(\w+)")
-    enum_pattern = re.compile(r"\bpublic\s+enum\s+(\w+)")
-    classes, enums = [], []
 
+    classes, enums = [], []
     with file_path.open("r", encoding="utf-8") as file:
         content = file.read()
         classes = class_pattern.findall(content)
@@ -43,7 +45,7 @@ def read_file(file_path: Path) -> list[str]:
     try:
         with file_path.open("r", encoding="utf-8") as file:
             return file.readlines()
-    except (PermissionError, OSError) as e:
+    except OSError as e:
         _logger.error("Error reading file %s: %s", file_path, e)
         return []
 
@@ -55,7 +57,7 @@ def write_file(file_path: Path, lines: list[str]) -> None:
     try:
         with file_path.open("w", encoding="utf-8") as file:
             file.writelines(lines)
-    except (PermissionError, OSError) as e:
+    except OSError as e:
         _logger.error("Error writing to file %s: %s", file_path, e)
 
 
@@ -72,7 +74,6 @@ def parse_definitions(lines: list[str], main_class_name: str) -> dict[str, tuple
     """
     Parse the definitions of the classes and enums in the file.
     """
-    single_line_enum_pattern = re.compile(r"\s*public\s+enum\s+\w+\s*{[^}]*}\s*;")
     definitions = {}
     in_definition = False
     current_definition = None
@@ -87,8 +88,8 @@ def parse_definitions(lines: list[str], main_class_name: str) -> dict[str, tuple
         if comment_block_start_index is not None and not re.match(r"\s*///", line):
             comment_block_start_index = None
 
-        if re.match(r"\s*public\s+partial\s+class\s+\w+", line):
-            class_name = re.findall(r"\bpublic\s+partial\s+class\s+(\w+)", line)[0]
+        if re.match(class_pattern, line):
+            class_name = re.findall(class_pattern, line)[0]
             if class_name == main_class_name:
                 in_definition = False
                 continue
@@ -99,9 +100,9 @@ def parse_definitions(lines: list[str], main_class_name: str) -> dict[str, tuple
                 find_comment_block_start(lines, index) if comment_block_start_index is not None else index
             )
 
-        elif re.match(r"\s*public\s+enum\s+\w+", line):
+        elif re.match(enum_pattern, line):
             if single_line_enum_pattern.match(line):
-                enum_name = re.findall(r"\bpublic\s+enum\s+(\w+)", line)[0]
+                enum_name = re.findall(enum_pattern, line)[0]
                 definition_start_index = (
                     find_comment_block_start(lines, index) if comment_block_start_index is not None else index
                 )
@@ -109,7 +110,7 @@ def parse_definitions(lines: list[str], main_class_name: str) -> dict[str, tuple
                 _logger.debug("Single-line enum found: %s at lines %d to %d", enum_name, definition_start_index, index)
                 continue
 
-            enum_name = re.findall(r"\bpublic\s+enum\s+(\w+)", line)[0]
+            enum_name = re.findall(enum_pattern, line)[0]
             current_definition = enum_name
             in_definition = True
             definition_start_index = (
