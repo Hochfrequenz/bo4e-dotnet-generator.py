@@ -22,7 +22,9 @@ _logger = logging.getLogger(__name__)
 
 @app.command()
 def main(
-    output: Path = typer.Option(Path.cwd() / "dotnet-classes", help="Output directory for the generated C# classes")
+    output: Path = typer.Option(
+        Path.cwd() / "dotnet-classes", help="Output directory for the generated C# classes. default: dotnet-classes"
+    )
 ) -> None:
     """
     It will use BO4E-Schema-Tool and
