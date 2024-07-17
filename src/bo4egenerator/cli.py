@@ -49,7 +49,7 @@ def main(
     running_bo4e_schema_tool(str(schemas_dir))
 
     # Generate C# classes from the schemas
-    generate_csharp_classes(Path(project_root), Path(schemas_dir), generated_output_dir, quicktype_executable)
+    generate_csharp_classes(project_root, schemas_dir, generated_output_dir, quicktype_executable)
 
     # Copy the generated files and subdirectories to the output directory
     if output.exists():
