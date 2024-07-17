@@ -10,7 +10,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from bo4egenerator import generator # pylint: disable=wrong-import-position
+from bo4egenerator import generator  # pylint: disable=wrong-import-position
+
 
 class TestGenerator(unittest.TestCase):
     """
