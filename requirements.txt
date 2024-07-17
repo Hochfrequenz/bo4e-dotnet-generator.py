@@ -56,7 +56,7 @@ rich==13.7.1
     # via typer
 shellingham==1.5.4
     # via typer
-tree-sitter==0.22.3
+tree-sitter-c-sharp==0.21.3
     # via bo4e-dotnet-generator (pyproject.toml)
 typer==0.12.3
     # via bo4e-dotnet-generator (pyproject.toml)
