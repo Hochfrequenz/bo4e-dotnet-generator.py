@@ -1,4 +1,3 @@
-import os
 import shutil
 import sys
 import unittest
@@ -7,7 +6,7 @@ from tempfile import TemporaryDirectory
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from bo4egenerator import duplicates
+from bo4egenerator import duplicates  # pylint: disable=wrong-import-position
 
 
 class TestRemoveDuplicateDefinitions(unittest.TestCase):
@@ -43,7 +42,7 @@ class TestRemoveDuplicateDefinitions(unittest.TestCase):
         # Check that "public enum Typ" is not in Angebot.cs
         self.assertNotIn("public enum Typ", bo_content, "`public enum Typ` should have been removed from Angebot.cs")
 
-        # TODO: https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/issues/17
+        # issue: https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/issues/17
         # self.assertNotIn(
         #     "internal class TypConverter : JsonConverter",
         #     bo_content,
@@ -55,7 +54,7 @@ class TestRemoveDuplicateDefinitions(unittest.TestCase):
             "public enum Landescode", com_content, "`public enum Landescode` should have been removed from Adresse.cs"
         )
 
-        # TODO: https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/issues/17
+        # issue: https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/issues/17
         # self.assertNotIn(
         #     "internal static class Converter",
         #     bo_content,
