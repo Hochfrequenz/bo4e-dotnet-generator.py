@@ -20,7 +20,9 @@ _logger = logging.getLogger(__name__)
 
 
 @app.command()
-def main() -> None:
+def main(
+    output: Path = typer.Option(Path.cwd() / "dotnet-classes", help="Output directory for the generated C# classes")
+) -> None:
     """
     It will use BO4E-Schema-Tool and
     generate C# classes from the BO4E schema files with help of Quicktype.
@@ -28,7 +30,6 @@ def main() -> None:
     # Define the base directories
     project_root = Path.cwd()  # Root directory of the project
     schemas_dir = project_root / "schemas"
-    output_dir = project_root / "dotnet-classes"
 
     # Determine the Quicktype executable path based on the operating system
     path_app_data = os.getenv("APPDATA")
@@ -41,10 +42,10 @@ def main() -> None:
     running_bo4e_schema_tool(str(schemas_dir))
 
     # Generate C# classes
-    generate_csharp_classes(Path(project_root), Path(schemas_dir), Path(output_dir), quicktype_executable)
+    generate_csharp_classes(Path(project_root), Path(schemas_dir), output, quicktype_executable)
 
     # Remove duplicate class and enum definitions
-    process_directory(Path(output_dir))
+    process_directory(output)
 
 
 def cli() -> None:
