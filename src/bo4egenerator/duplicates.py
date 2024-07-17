@@ -61,7 +61,7 @@ def write_file(file_path: Path, lines: list[str]) -> None:
 
 def find_comment_block_start(lines: list[str], index: int) -> int:
     """
-    find the start of the comment block.
+    find the start of the docstring block.
     """
     while index > 0 and re.match(r"\s*///", lines[index - 1]):
         index -= 1
