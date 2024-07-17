@@ -18,7 +18,8 @@ classifiers = [
 ]
 dependencies = [
     "BO4E-Schema-Tool>=0.0.7",
-    "typer"
+    "typer",
+    "tree-sitter"
     # add all the dependencies here
 ]
 dynamic = ["readme", "version"]
