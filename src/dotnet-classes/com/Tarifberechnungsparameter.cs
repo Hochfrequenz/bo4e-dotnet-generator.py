@@ -151,36 +151,11 @@ namespace BO4EDotNet
     }
 
 
-    /// <summary>
-    /// Auflistung der verschiedenen Berechnungsmethoden für ein Preisblatt.
-    /// </summary>
-    public enum Tarifkalkulationsmethode { BestabrechnungStaffel, Keine, Paketpreis, Staffeln, Zonen };
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
-    /// <summary>
-    /// In diesem Enum werden die Währungen und ihre Untereinheiten definiert, beispielsweise für
-    /// die Verwendung in Preisen.
-    /// </summary>
-    public enum Waehrungseinheit { Ct, Eur };
 
-    /// <summary>
-    /// Statusinformation für Preise
-    /// </summary>
-    public enum Preisstatus { Endgueltig, Vorlaeufig };
 
-    /// <summary>
-    /// Festlegung, welcher Typ von Messung mit einem Preis belegt wird
-    /// </summary>
-    public enum Messpreistyp { AufschlagTarifschaltung, AufschlagWandler, ElektronischerAufsatz, MesspreisG10, MesspreisG16, MesspreisG25, MesspreisG4, MesspreisG40, MesspreisG6, MesspreistypMesspreisG25, MesspreistypSmartMeterMesspreisG25, SmartMeterMesspreisG10, SmartMeterMesspreisG16, SmartMeterMesspreisG25, SmartMeterMesspreisG4, SmartMeterMesspreisG40, SmartMeterMesspreisG6, VerrechnungspreisEtDreh, VerrechnungspreisEtWechsel, VerrechnungspreisLEt, VerrechnungspreisLZt, VerrechnungspreisSm, VerrechnungspreisZtDreh, VerrechnungspreisZtWechsel };
 
-    /// <summary>
-    /// Aufschlüsselung der Preistypen in Tarifen.
-    /// </summary>
-    public enum Preistyp { ArbeitspreisEintarif, ArbeitspreisHt, ArbeitspreisNt, EntgeltAblesung, EntgeltAbrechnung, EntgeltMsb, Grundpreis, Leistungspreis, Messpreis, Provision };
 
     public partial class Tarifberechnungsparameter
     {

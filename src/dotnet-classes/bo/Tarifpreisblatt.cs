@@ -224,156 +224,16 @@ namespace BO4EDotNet
 
 
 
-    public enum Landescode { Ad, Ae, Af, Ag, Ai, Al, Am, Ao, Aq, Ar, As, At, Au, Aw, Ax, Az, Ba, Bb, Bd, Be, Bf, Bg, Bh, Bi, Bj, Bl, Bm, Bn, Bo, Bq, Br, Bs, Bt, Bv, Bw, By, Bz, Ca, Cc, Cd, Cf, Cg, Ch, Ci, Ck, Cl, Cm, Cn, Co, Cr, Cu, Cv, Cw, Cx, Cy, Cz, De, Dj, Dk, Dm, Do, Dz, Ec, Ee, Eg, Eh, Er, Es, Et, Fi, Fj, Fk, Fm, Fo, Fr, Ga, Gb, Gd, Ge, Gf, Gg, Gh, Gi, Gl, Gm, Gn, Gp, Gq, Gr, Gs, Gt, Gu, Gw, Gy, Hk, Hm, Hn, Hr, Ht, Hu, Id, Ie, Il, Im, In, Io, Iq, Ir, Is, It, Je, Jm, Jo, Jp, Ke, Kg, Kh, Ki, Km, Kn, Kp, Kr, Kw, Ky, Kz, La, Lb, Lc, Li, Lk, Lr, Ls, Lt, Lu, Lv, Ly, Ma, Mc, Md, Me, Mf, Mg, Mh, Mk, Ml, Mm, Mn, Mo, Mp, Mq, Mr, Ms, Mt, Mu, Mv, Mw, Mx, My, Mz, Na, Nc, Ne, Nf, Ng, Ni, Nl, No, Np, Nr, Nu, Nz, Om, Pa, Pe, Pf, Pg, Ph, Pk, Pl, Pm, Pn, Pr, Ps, Pt, Pw, Py, Qa, Re, Ro, Rs, Ru, Rw, Sa, Sb, Sc, Sd, Se, Sg, Sh, Si, Sj, Sk, Sl, Sm, Sn, So, Sr, Ss, St, Sv, Sx, Sy, Sz, Tc, Td, Tf, Tg, Th, Tj, Tk, Tl, Tm, Tn, To, Tr, Tt, Tv, Tw, Tz, Ua, Ug, Um, Us, Uy, Uz, Va, Vc, Ve, Vg, Vi, Vn, Vu, Wf, Ws, Xk, Ye, Yt, Za, Zm, Zw };
 
-    /// <summary>
-    /// Übersicht möglicher Anreden, z.B. eines Geschäftspartners.
-    /// </summary>
-    public enum Anrede { Eheleute, Erbengemeinschaft, Familie, Firma, Frau, Grundstuecksgemeinschaft, Herr };
 
-    /// <summary>
-    /// Gibt an, auf welchem Weg die Person oder der Geschäftspartner kontaktiert werden kann.
-    /// </summary>
-    public enum Kontaktart { EMail, Fax, Postweg, Sms, Telefon };
 
-    /// <summary>
-    /// Übersicht möglicher Titel, z.B. eines Geschäftspartners.
-    /// </summary>
-    public enum Titel { Dr, Prof, ProfDr };
 
-    /// <summary>
-    /// Auflistung sämtlicher existierender Geschäftsobjekte.
-    /// </summary>
-    public enum Typ { Angebot, Ausschreibung, Buendelvertrag, Energiemenge, Fremdkosten, Geraet, Geschaeftsobjekt, Geschaeftspartner, Kosten, Lastgang, Marktlokation, Marktteilnehmer, Messlokation, Netznutzungsrechnung, Person, Preisblatt, Preisblattdienstleistung, Preisblatthardware, Preisblattkonzessionsabgabe, Preisblattmessung, Preisblattnetznutzung, Preisblattumlagen, Rechnung, Region, Regionaltarif, Standorteigenschaften, Tarif, Tarifinfo, Tarifkosten, Tarifpreisblatt, Vertrag, Zaehler, Zeitreihe };
 
-    /// <summary>
-    /// Über dieses ENUM kann eine thematische Zuordnung, beispielsweise eines Ansprechpartners,
-    /// vorgenommen werden.
-    /// </summary>
-    public enum Themengebiet { AllgemeinerInformationsaustausch, Alocat, AnUndAbmeldung, AnsprechpartnerAllgemein, AnsprechpartnerBdewDvgw, AnsprechpartnerItTechnik, Aperak, Bewegungsdaten, Bilanzierung, Bilanzkreiskoordinator, Bilanzkreisverantwortlicher, Contrl, DatenformateZertifikateVerschluesselungen, Debitorenmanagement, DemandSideManagement, EdiVereinbarung, Edifact, Einspeisung, Energiedatenmanagement, Fahrplanmanagement, Gabi, Geli, Geraeterueckgabe, Geraetewechsel, Gpke, Inbetriebnahme, Invoic, Kapazitaetsmanagement, Klaerfaelle, LastgaengeRlm, Lieferantenrahmenvertrag, Lieferantenwechsel, Mabis, Mahnwesen, Marktgebietsverantwortlicher, Marktkommunikation, MehrMindermengen, MsbMdl, Mscons, Netzabrechnung, Netzentgelte, Netzmanagement, Orders, Ordersp, Recht, Regulierungsmanagement, Reklamationen, Remadv, SperrenEntsperrenInkasso, Stammdaten, Stoerungsfaelle, TechnischeFragen, UmstellungInvoic, Utilmd, VerschluesselungSignatur, Vertragsmanagement, Vertrieb, Wim, ZaehlerstaendeSlp, Zahlungsverkehr, Zuordnungsvereinbarung };
 
-    /// <summary>
-    /// Diese Rollen kann ein Geschäftspartner einnehmen.
-    /// </summary>
-    public enum Geschaeftspartnerrolle { Dienstleister, Interessent, Kunde, Lieferant, Marktpartner };
 
-    /// <summary>
-    /// Hier wird festgelegt, ob der Geschäftspartner eine Person, eine Firma oder etwas anderes
-    /// ist.
-    /// </summary>
-    public enum Organisationstyp { KommunaleEinrichtung, Privatperson, StaatlicheBehoerde, Unternehmen };
 
-    /// <summary>
-    /// Diese Rollen kann ein Marktteilnehmer einnehmen.
-    /// </summary>
-    public enum Marktrolle { Biko, Bkv, Btr, Dp, Eiv, Esa, Kn, Lf, Mgv, Msb, Nb, Rb, Uenb };
 
-    /// <summary>
-    /// Gibt den Codetyp einer Rolle, beispielsweise einer Marktrolle, an.
-    /// </summary>
-    public enum Rollencodetyp { Bdew, Dvgw, Gln };
 
-    /// <summary>
-    /// Unterscheidungsmöglichkeiten für die Sparte.
-    /// </summary>
-    public enum Sparte { Abwasser, Fernwaerme, Gas, Nahwaerme, Strom, StromUndGas, Wasser };
-
-    /// <summary>
-    /// Auflistung der verschiedenen Berechnungsmethoden für ein Preisblatt.
-    /// </summary>
-    public enum Tarifkalkulationsmethode { BestabrechnungStaffel, Keine, Paketpreis, Staffeln, Zonen };
-
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
-
-    /// <summary>
-    /// In diesem Enum werden die Währungen und ihre Untereinheiten definiert, beispielsweise für
-    /// die Verwendung in Preisen.
-    /// </summary>
-    public enum Waehrungseinheit { Ct, Eur };
-
-    /// <summary>
-    /// Statusinformation für Preise
-    /// </summary>
-    public enum Preisstatus { Endgueltig, Vorlaeufig };
-
-    /// <summary>
-    /// Festlegung, welcher Typ von Messung mit einem Preis belegt wird
-    /// </summary>
-    public enum Messpreistyp { AufschlagTarifschaltung, AufschlagWandler, ElektronischerAufsatz, MesspreisG10, MesspreisG16, MesspreisG25, MesspreisG4, MesspreisG40, MesspreisG6, MesspreistypMesspreisG25, MesspreistypSmartMeterMesspreisG25, SmartMeterMesspreisG10, SmartMeterMesspreisG16, SmartMeterMesspreisG25, SmartMeterMesspreisG4, SmartMeterMesspreisG40, SmartMeterMesspreisG6, VerrechnungspreisEtDreh, VerrechnungspreisEtWechsel, VerrechnungspreisLEt, VerrechnungspreisLZt, VerrechnungspreisSm, VerrechnungspreisZtDreh, VerrechnungspreisZtWechsel };
-
-    /// <summary>
-    /// Aufschlüsselung der Preistypen in Tarifen.
-    /// </summary>
-    public enum Preistyp { ArbeitspreisEintarif, ArbeitspreisHt, ArbeitspreisNt, EntgeltAblesung, EntgeltAbrechnung, EntgeltMsb, Grundpreis, Leistungspreis, Messpreis, Provision };
-
-    /// <summary>
-    /// Auflistung der Erzeugungsarten von Energie.
-    /// </summary>
-    public enum Erzeugungsart { Biogas, Biomasse, Fossil, Gas, Geothermie, Kernkraft, KlimaneutralesGas, Kohle, Kwk, Solar, Sonstige, SonstigeEeg, Wasser, Wind };
-
-    /// <summary>
-    /// Aufzählung der Labels für Öko-Strom von verschiedenen Herausgebern.
-    /// </summary>
-    public enum Oekolabel { Energreen, Gasgreen, GasgreenGruenerStrom, GruenerStrom, GruenerStromGold, GruenerStromSilber, GruenesGas, NaturwattStrom, OkPower, RenewablePlus, Watergreen, WatergreenPlus };
-
-    /// <summary>
-    /// Zertifikate für Ökostrom von verschiedenen Herausgebern.
-    /// </summary>
-    public enum Oekozertifikat { Bet, CmsEe01, CmsEe02, Eecs, Fraunhofer, Freiberg, KlimaInvest, Lga, Recs, RegsEgl, Tuev, TuevHessen, TuevNord, TuevRheinland, TuevSued, TuevSuedEe01, TuevSuedEe02 };
-
-    /// <summary>
-    /// Auflistung der Typen von Endkunden. Daraus kann das Verbrauchsprofil abgeleitet werden.
-    /// </summary>
-    public enum Kundentyp { BeleuchtungOeffentlich, BeleuchtungStrasse, Direktheizung, GemeinschaftMfh, Gewerbe, Haushalt, Kirche, Kwk, Ladesaeule, Landwirt, Privat, Sonstige, Speicherheizung, UnterbrEinrichtung, Waermepumpe };
-
-    /// <summary>
-    /// Aufzählung der Möglichkeiten für die Vergabe von Preisgarantien
-    /// </summary>
-    public enum Preisgarantietyp { AllePreisbestandteileBrutto, AllePreisbestandteileNetto, NurEnergiepreis, PreisbestandteileOhneAbgaben };
-
-    /// <summary>
-    /// Die Registeranzahl wird verwendet zur Charakterisierung von Zählern und daraus
-    /// resultierenden Tarifen.
-    /// </summary>
-    public enum Registeranzahl { Eintarif, Mehrtarif, Zweitarif };
-
-    /// <summary>
-    /// Festlegung, ob der Auf- oder Abschlag mit relativen oder absoluten Werten erfolgt.
-    /// </summary>
-    public enum AufAbschlagstyp { Absolut, Relativ };
-
-    /// <summary>
-    /// Der Preis, auf den sich ein Auf- oder Abschlag bezieht.
-    /// </summary>
-    public enum AufAbschlagsziel { ArbeitspreisEintarif, ArbeitspreisHt, ArbeitspreisHtNt, ArbeitspreisNt, Gesamtpreis, Grundpreis };
-
-    /// <summary>
-    /// Auflistung möglicher übergreifenden Geräteklassen.
-    /// </summary>
-    public enum Geraeteklasse { Kommunikationseinrichtung, Mengenumwerter, SmartmeterGateway, Steuerbox, TechnischeSteuereinrichtung, Wandler, Zaehleinrichtung };
-
-    /// <summary>
-    /// Auflistung möglicher abzurechnender Gerätetypen.
-    /// </summary>
-    public enum Geraetetyp { Blockstromwandler, Datenlogger, DslKom, Edl21, Edl40, Edl40_Zaehleraufsatz, EthernetKom, HoechstbelastungsAnzeiger, Impulsgeber, IntelligentesMessystem, Kombimesswandler, KombimesswandlerImsMme, Kommunikationsanschluss, KompaktMu, LteKom, Mengenumwerter, MesswandlersatzImsMme, Modem, ModemFestnetz, ModemFunk, ModemGprs, ModemGprsMLg, ModemGsm, ModemGsmMLg, ModemGsmOLg, ModerneMesseinrichtung, Multiplexanlage, OptionaleZusZaehleinrichtung, Pauschalanlage, PlcKom, Rundsteuerempfaenger, RundsteuerempfaengerImsMme, SonstigesGeraet, Spannungswandler, Steuereinrichtung, Stromwandler, Summationsgeraet, SystemMu, Tarifschaltgeraet, TarifschaltgeraetImsMme, Telefonanschluss, Telekommunikationseinrichtung, TemperaturKompensation, TemperaturMu, Verstaerkeranlage, ZustandsMu };
-
-    /// <summary>
-    /// Voraussetzungen, die erfüllt sein müssen, damit dieser Tarif zur Anwendung kommen kann.
-    /// </summary>
-    public enum Voraussetzungen { AlterKundenanlage, Altvertrag, Anlagebeschaffenheit, Anschlussart, Anschlusswert, AusschlussGrossverbraucher, BesondereVerbrauchsstelle, BestimmteVertragsformalitaeten, BestimmterAbnahmefall, Betriebsstundenbegrenzung, Direktvertrieb, Einzugsermaechtigung, Familienstruktur, Freigabezeiten, Gewerbe, KombiBoni, Lastprofil, LieferanbindungAlle, LieferanbindungEine, LieferungsbeschraenkungGasart, MaxZaehlerLieferstellen, MehrereZaehlerAbnahmestellen, Mindestumsatz, Mitgliedschaft, NachweisZahlungsfaehigkeit, Neukunde, NeukundeMitVoraussetzungen, Niedrigenergie, Onlinevoraussetzung, OrtsteileLiefergebiet, Selbstablesung, StaatlicheFoerderung, UmstellungEnergieart, VorgeschriebeneZusatzanlage, WaermebedarfErdgas, ZaehlertypGroesse, Zeitpunkt, Zusatzmodalitaet, Zusatzprodukt };
-
-    /// <summary>
-    /// Produktmerkmale im Zusammenhang mit der Tarifdefinition.
-    /// </summary>
-    public enum Tarifmerkmal { Baustrom, Festpreis, Hauslicht, Heizstrom, Kombi, Online, Paket, Standard, Vorkasse };
-
-    /// <summary>
-    /// Zur Differenzierung von Grund/Ersatzversorgungstarifen und sonstigen angebotenen Tarifen.
-    /// </summary>
-    public enum Tariftyp { Ersatzversorgung, GrundErsatzversorgung, Grundversorgung, Sondertarif };
 
     public partial class Tarifpreisblatt
     {

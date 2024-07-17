@@ -131,47 +131,13 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
-    /// <summary>
-    /// Gibt ein physikalisches Medium an.
-    /// </summary>
-    public enum Medium { Dampf, Gas, Strom, Wasser };
 
-    /// <summary>
-    /// Gibt an, auf welche Art gemessen wurde.
-    /// </summary>
-    public enum Messart { Aktuellerwert, Maximalwert, Mittelwert };
 
-    /// <summary>
-    /// Gibt die physikalische Größe an, die gemessen wurde.
-    /// </summary>
-    public enum Messgroesse { Blindleistung, Brennwert, Druck, Gradtzagszahlen, Lastgang, Lastprofil, Preise, Spannung, Strom, Temperatur, Volumenstrom, Wirkleistung, Zzahl };
 
-    /// <summary>
-    /// Auflistung sämtlicher existierender Geschäftsobjekte.
-    /// </summary>
-    public enum Typ { Angebot, Ausschreibung, Buendelvertrag, Energiemenge, Fremdkosten, Geraet, Geschaeftsobjekt, Geschaeftspartner, Kosten, Lastgang, Marktlokation, Marktteilnehmer, Messlokation, Netznutzungsrechnung, Person, Preisblatt, Preisblattdienstleistung, Preisblatthardware, Preisblattkonzessionsabgabe, Preisblattmessung, Preisblattnetznutzung, Preisblattumlagen, Rechnung, Region, Regionaltarif, Standorteigenschaften, Tarif, Tarifinfo, Tarifkosten, Tarifpreisblatt, Vertrag, Zaehler, Zeitreihe };
 
-    /// <summary>
-    /// Der Status eines Zählerstandes
-    /// </summary>
-    public enum Messwertstatus { Abgelesen, AngabeFuerLieferschein, Energiemengesummiert, Ersatzwert, Fehlt, NichtVerwendbar, Prognosewert, Vorlaeufigerwert, Vorschlagswert };
 
-    /// <summary>
-    /// Aufzählung von zusätzlichen Informationen zum Status, beispielsweise in Lastgängen oder
-    /// Zählwerkständen.
-    /// </summary>
-    public enum Messwertstatuszusatz { Z74Keinzugang, Z75Kommunikationsstoerung, Z76Netzausfall, Z77Spannungsausfall, Z78Geraetewechsel, Z79Kalibrierung, Z80Geraetarbeitetausserhalbderbetriebsbedingungen, Z81MesseinrichtunggestoertDefekt, Z82Unsicherheitmessung, Z84Leerstand, Z85Realerzaehlerueberlaufgeprueft, Z86Plausibelwgkontrollablesung, Z87Plausibelwgkundenhinweis, Z88VergleichsmessungGeeicht, Z89VergleichsmessungNichtgeeicht, Z90Messwertnachbildungausgeeichtenwerten, Z91Messwertnachbildungausnichtgeeichtenwerten, Z92Interpolation, Z93Haltewert, Z94Bilanzierungnetzabschnitt, Z95Historischemesswerte, Z98Beruecksichtigungstoermengenzaehlwerk, Z99Mengenumwertungunvollstaendig, Za0UhrzeitgestelltSynchronisation, Za1Messwertunplausibel, Za3Falscherwandlerfaktor, Za4Fehlerhafteablesung, Za5Aenderungderberechnung, Za6Umbaudermesslokation, Za7Datenbearbeitungsfehler, Za8Brennwertkorrektur, Za9ZZahlKorrektur, Zb0StoerungDefektmesseinrichtung, Zb9Aenderungtarifschaltzeiten, Zc2Tarifschaltgeraetdefekt, Zc3Austauschdesersatzwertes, Zc4Impulswertigkeitnichtausreichend, Zg3Umstellunggasqualitaet, Zj2Statistischemethode };
 
-    /// <summary>
-    /// Gibt an, ob es sich um eine Prognose oder eine Messung handelt, beispielsweise bei der
-    /// Abbildung eines Verbrauchs.
-    /// </summary>
-    public enum Wertermittlungsverfahren { Messung, Prognose };
 
     public partial class Zeitreihe
     {

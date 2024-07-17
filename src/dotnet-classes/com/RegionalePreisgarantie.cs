@@ -115,25 +115,9 @@ namespace BO4EDotNet
     }
 
 
-    /// <summary>
-    /// Aufzählung der Möglichkeiten für die Vergabe von Preisgarantien
-    /// </summary>
-    public enum Preisgarantietyp { AllePreisbestandteileBrutto, AllePreisbestandteileNetto, NurEnergiepreis, PreisbestandteileOhneAbgaben };
 
-    /// <summary>
-    /// Übersicht der verschiedenen Gültigkeiten zur Umsetzung von Positiv- bzw. Negativlisten.
-    /// </summary>
-    public enum Gueltigkeitstyp { NichtIn, NurIn, NurInKombinationMit };
 
-    /// <summary>
-    /// Mit diesen Kriterien können regionale Bereiche definiert werden.
-    /// </summary>
-    public enum Tarifregionskriterium { GrundversorgerNummer, NetzNummer, Ort, Postleitzahl, Region };
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
     public partial class RegionalePreisgarantie
     {

@@ -160,25 +160,9 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Auflistung der Erzeugungsarten von Energie.
-    /// </summary>
-    public enum Erzeugungsart { Biogas, Biomasse, Fossil, Gas, Geothermie, Kernkraft, KlimaneutralesGas, Kohle, Kwk, Solar, Sonstige, SonstigeEeg, Wasser, Wind };
 
-    /// <summary>
-    /// Unterscheidungsmöglichkeiten für die Sparte.
-    /// </summary>
-    public enum Sparte { Abwasser, Fernwaerme, Gas, Nahwaerme, Strom, StromUndGas, Wasser };
 
-    /// <summary>
-    /// Aufzählung der Labels für Öko-Strom von verschiedenen Herausgebern.
-    /// </summary>
-    public enum Oekolabel { Energreen, Gasgreen, GasgreenGruenerStrom, GruenerStrom, GruenerStromGold, GruenerStromSilber, GruenesGas, NaturwattStrom, OkPower, RenewablePlus, Watergreen, WatergreenPlus };
 
-    /// <summary>
-    /// Zertifikate für Ökostrom von verschiedenen Herausgebern.
-    /// </summary>
-    public enum Oekozertifikat { Bet, CmsEe01, CmsEe02, Eecs, Fraunhofer, Freiberg, KlimaInvest, Lga, Recs, RegsEgl, Tuev, TuevHessen, TuevNord, TuevRheinland, TuevSued, TuevSuedEe01, TuevSuedEe02 };
 
     public partial class Energiemix
     {

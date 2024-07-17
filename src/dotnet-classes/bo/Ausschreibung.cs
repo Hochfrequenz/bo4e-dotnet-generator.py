@@ -157,90 +157,12 @@ namespace BO4EDotNet
 
 
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
-    public enum Landescode { Ad, Ae, Af, Ag, Ai, Al, Am, Ao, Aq, Ar, As, At, Au, Aw, Ax, Az, Ba, Bb, Bd, Be, Bf, Bg, Bh, Bi, Bj, Bl, Bm, Bn, Bo, Bq, Br, Bs, Bt, Bv, Bw, By, Bz, Ca, Cc, Cd, Cf, Cg, Ch, Ci, Ck, Cl, Cm, Cn, Co, Cr, Cu, Cv, Cw, Cx, Cy, Cz, De, Dj, Dk, Dm, Do, Dz, Ec, Ee, Eg, Eh, Er, Es, Et, Fi, Fj, Fk, Fm, Fo, Fr, Ga, Gb, Gd, Ge, Gf, Gg, Gh, Gi, Gl, Gm, Gn, Gp, Gq, Gr, Gs, Gt, Gu, Gw, Gy, Hk, Hm, Hn, Hr, Ht, Hu, Id, Ie, Il, Im, In, Io, Iq, Ir, Is, It, Je, Jm, Jo, Jp, Ke, Kg, Kh, Ki, Km, Kn, Kp, Kr, Kw, Ky, Kz, La, Lb, Lc, Li, Lk, Lr, Ls, Lt, Lu, Lv, Ly, Ma, Mc, Md, Me, Mf, Mg, Mh, Mk, Ml, Mm, Mn, Mo, Mp, Mq, Mr, Ms, Mt, Mu, Mv, Mw, Mx, My, Mz, Na, Nc, Ne, Nf, Ng, Ni, Nl, No, Np, Nr, Nu, Nz, Om, Pa, Pe, Pf, Pg, Ph, Pk, Pl, Pm, Pn, Pr, Ps, Pt, Pw, Py, Qa, Re, Ro, Rs, Ru, Rw, Sa, Sb, Sc, Sd, Se, Sg, Sh, Si, Sj, Sk, Sl, Sm, Sn, So, Sr, Ss, St, Sv, Sx, Sy, Sz, Tc, Td, Tf, Tg, Th, Tj, Tk, Tl, Tm, Tn, To, Tr, Tt, Tv, Tw, Tz, Ua, Ug, Um, Us, Uy, Uz, Va, Vc, Ve, Vg, Vi, Vn, Vu, Wf, Ws, Xk, Ye, Yt, Za, Zm, Zw };
 
-    /// <summary>
-    /// Übersicht möglicher Anreden, z.B. eines Geschäftspartners.
-    /// </summary>
-    public enum Anrede { Eheleute, Erbengemeinschaft, Familie, Firma, Frau, Grundstuecksgemeinschaft, Herr };
 
-    /// <summary>
-    /// Gibt an, auf welchem Weg die Person oder der Geschäftspartner kontaktiert werden kann.
-    /// </summary>
-    public enum Kontaktart { EMail, Fax, Postweg, Sms, Telefon };
 
-    /// <summary>
-    /// Übersicht möglicher Titel, z.B. eines Geschäftspartners.
-    /// </summary>
-    public enum Titel { Dr, Prof, ProfDr };
 
-    /// <summary>
-    /// Auflistung sämtlicher existierender Geschäftsobjekte.
-    /// </summary>
-    public enum Typ { Angebot, Ausschreibung, Buendelvertrag, Energiemenge, Fremdkosten, Geraet, Geschaeftsobjekt, Geschaeftspartner, Kosten, Lastgang, Marktlokation, Marktteilnehmer, Messlokation, Netznutzungsrechnung, Person, Preisblatt, Preisblattdienstleistung, Preisblatthardware, Preisblattkonzessionsabgabe, Preisblattmessung, Preisblattnetznutzung, Preisblattumlagen, Rechnung, Region, Regionaltarif, Standorteigenschaften, Tarif, Tarifinfo, Tarifkosten, Tarifpreisblatt, Vertrag, Zaehler, Zeitreihe };
 
-    /// <summary>
-    /// Über dieses ENUM kann eine thematische Zuordnung, beispielsweise eines Ansprechpartners,
-    /// vorgenommen werden.
-    /// </summary>
-    public enum Themengebiet { AllgemeinerInformationsaustausch, Alocat, AnUndAbmeldung, AnsprechpartnerAllgemein, AnsprechpartnerBdewDvgw, AnsprechpartnerItTechnik, Aperak, Bewegungsdaten, Bilanzierung, Bilanzkreiskoordinator, Bilanzkreisverantwortlicher, Contrl, DatenformateZertifikateVerschluesselungen, Debitorenmanagement, DemandSideManagement, EdiVereinbarung, Edifact, Einspeisung, Energiedatenmanagement, Fahrplanmanagement, Gabi, Geli, Geraeterueckgabe, Geraetewechsel, Gpke, Inbetriebnahme, Invoic, Kapazitaetsmanagement, Klaerfaelle, LastgaengeRlm, Lieferantenrahmenvertrag, Lieferantenwechsel, Mabis, Mahnwesen, Marktgebietsverantwortlicher, Marktkommunikation, MehrMindermengen, MsbMdl, Mscons, Netzabrechnung, Netzentgelte, Netzmanagement, Orders, Ordersp, Recht, Regulierungsmanagement, Reklamationen, Remadv, SperrenEntsperrenInkasso, Stammdaten, Stoerungsfaelle, TechnischeFragen, UmstellungInvoic, Utilmd, VerschluesselungSignatur, Vertragsmanagement, Vertrieb, Wim, ZaehlerstaendeSlp, Zahlungsverkehr, Zuordnungsvereinbarung };
-
-    /// <summary>
-    /// Diese Rollen kann ein Geschäftspartner einnehmen.
-    /// </summary>
-    public enum Geschaeftspartnerrolle { Dienstleister, Interessent, Kunde, Lieferant, Marktpartner };
-
-    /// <summary>
-    /// Hier wird festgelegt, ob der Geschäftspartner eine Person, eine Firma oder etwas anderes
-    /// ist.
-    /// </summary>
-    public enum Organisationstyp { KommunaleEinrichtung, Privatperson, StaatlicheBehoerde, Unternehmen };
-
-    /// <summary>
-    /// Aufzählung der unterstützten Ausschreibungsportale.
-    /// </summary>
-    public enum Ausschreibungsportal { Bmwi, Bund, Dtad, EnergieAgentur, EnergieHandelsplatz, Energiemarktplatz, Enportal, Evergabe, Ispex, VeraOnline };
-
-    /// <summary>
-    /// Bezeichnungen für die Ausschreibungsphasen
-    /// </summary>
-    public enum Ausschreibungsstatus { Phase1, Phase2, Phase3, Phase4 };
-
-    /// <summary>
-    /// Aufzählung für die Typisierung von Ausschreibungen.
-    /// </summary>
-    public enum Ausschreibungstyp { Europaweit, Oeffentlichrechtlich, Privatrechtlich };
-
-    /// <summary>
-    /// Unterscheidungsmöglichkeiten für die Sparte.
-    /// </summary>
-    public enum Sparte { Abwasser, Fernwaerme, Gas, Nahwaerme, Strom, StromUndGas, Wasser };
-
-    /// <summary>
-    /// Bei diesem Enum handelt es sich um die Abbildung von Zählertypen der Sparten Strom und
-    /// Gas.
-    /// </summary>
-    public enum Zaehlertyp { Balgengaszaehler, Drehkolbenzaehler, Drehstromzaehler, ElektronischerZaehler, IntelligentesMesssystem, Leistungszaehler, Maximumzaehler, ModerneMesseinrichtung, Turbinenradgaszaehler, Ultraschallgaszaehler, Wechselstromzaehler, Wirbelgaszaehler };
-
-    /// <summary>
-    /// Bezeichnung der Preismodelle in Ausschreibungen für die Energielieferung.
-    /// </summary>
-    public enum Preismodell { Festpreis, Tranche };
-
-    /// <summary>
-    /// Aufzählung der Möglichkeiten zur Rechnungslegung in Ausschreibungen.
-    /// </summary>
-    public enum Rechnungslegung { AbschlJahresrechn, AbschlMonatsrechn, Monatsrechn, MonatsrechnJahresrechn, Vorkasse };
-
-    /// <summary>
-    /// Aufzählung der Möglichkeiten zu Vertragsformen in Ausschreibungen.
-    /// </summary>
-    public enum Vertragsform { Direkt, Fax, Online };
 
     public partial class Ausschreibung
     {

@@ -106,10 +106,6 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Art der Konzessionsabgabe
-    /// </summary>
-    public enum AbgabeArt { Kas, Sa, Sas, Ta, Tas, Tk, Tks, Ts, Tss };
 
     public partial class Konzessionsabgabe
     {

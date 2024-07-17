@@ -169,142 +169,15 @@ namespace BO4EDotNet
 
 
 
-    /// <summary>
-    /// Auflistung möglicher übergreifenden Geräteklassen.
-    /// </summary>
-    public enum Geraeteklasse { Kommunikationseinrichtung, Mengenumwerter, SmartmeterGateway, Steuerbox, TechnischeSteuereinrichtung, Wandler, Zaehleinrichtung };
 
-    /// <summary>
-    /// Auflistung möglicher abzurechnender Gerätetypen.
-    /// </summary>
-    public enum Geraetetyp { Blockstromwandler, Datenlogger, DslKom, Edl21, Edl40, Edl40_Zaehleraufsatz, EthernetKom, HoechstbelastungsAnzeiger, Impulsgeber, IntelligentesMessystem, Kombimesswandler, KombimesswandlerImsMme, Kommunikationsanschluss, KompaktMu, LteKom, Mengenumwerter, MesswandlersatzImsMme, Modem, ModemFestnetz, ModemFunk, ModemGprs, ModemGprsMLg, ModemGsm, ModemGsmMLg, ModemGsmOLg, ModerneMesseinrichtung, Multiplexanlage, OptionaleZusZaehleinrichtung, Pauschalanlage, PlcKom, Rundsteuerempfaenger, RundsteuerempfaengerImsMme, SonstigesGeraet, Spannungswandler, Steuereinrichtung, Stromwandler, Summationsgeraet, SystemMu, Tarifschaltgeraet, TarifschaltgeraetImsMme, Telefonanschluss, Telekommunikationseinrichtung, TemperaturKompensation, TemperaturMu, Verstaerkeranlage, ZustandsMu };
 
-    /// <summary>
-    /// Auflistung sämtlicher existierender Geschäftsobjekte.
-    /// </summary>
-    public enum Typ { Angebot, Ausschreibung, Buendelvertrag, Energiemenge, Fremdkosten, Geraet, Geschaeftsobjekt, Geschaeftspartner, Kosten, Lastgang, Marktlokation, Marktteilnehmer, Messlokation, Netznutzungsrechnung, Person, Preisblatt, Preisblattdienstleistung, Preisblatthardware, Preisblattkonzessionsabgabe, Preisblattmessung, Preisblattnetznutzung, Preisblattumlagen, Rechnung, Region, Regionaltarif, Standorteigenschaften, Tarif, Tarifinfo, Tarifkosten, Tarifpreisblatt, Vertrag, Zaehler, Zeitreihe };
 
-    public enum Landescode { Ad, Ae, Af, Ag, Ai, Al, Am, Ao, Aq, Ar, As, At, Au, Aw, Ax, Az, Ba, Bb, Bd, Be, Bf, Bg, Bh, Bi, Bj, Bl, Bm, Bn, Bo, Bq, Br, Bs, Bt, Bv, Bw, By, Bz, Ca, Cc, Cd, Cf, Cg, Ch, Ci, Ck, Cl, Cm, Cn, Co, Cr, Cu, Cv, Cw, Cx, Cy, Cz, De, Dj, Dk, Dm, Do, Dz, Ec, Ee, Eg, Eh, Er, Es, Et, Fi, Fj, Fk, Fm, Fo, Fr, Ga, Gb, Gd, Ge, Gf, Gg, Gh, Gi, Gl, Gm, Gn, Gp, Gq, Gr, Gs, Gt, Gu, Gw, Gy, Hk, Hm, Hn, Hr, Ht, Hu, Id, Ie, Il, Im, In, Io, Iq, Ir, Is, It, Je, Jm, Jo, Jp, Ke, Kg, Kh, Ki, Km, Kn, Kp, Kr, Kw, Ky, Kz, La, Lb, Lc, Li, Lk, Lr, Ls, Lt, Lu, Lv, Ly, Ma, Mc, Md, Me, Mf, Mg, Mh, Mk, Ml, Mm, Mn, Mo, Mp, Mq, Mr, Ms, Mt, Mu, Mv, Mw, Mx, My, Mz, Na, Nc, Ne, Nf, Ng, Ni, Nl, No, Np, Nr, Nu, Nz, Om, Pa, Pe, Pf, Pg, Ph, Pk, Pl, Pm, Pn, Pr, Ps, Pt, Pw, Py, Qa, Re, Ro, Rs, Ru, Rw, Sa, Sb, Sc, Sd, Se, Sg, Sh, Si, Sj, Sk, Sl, Sm, Sn, So, Sr, Ss, St, Sv, Sx, Sy, Sz, Tc, Td, Tf, Tg, Th, Tj, Tk, Tl, Tm, Tn, To, Tr, Tt, Tv, Tw, Tz, Ua, Ug, Um, Us, Uy, Uz, Va, Vc, Ve, Vg, Vi, Vn, Vu, Wf, Ws, Xk, Ye, Yt, Za, Zm, Zw };
 
-    /// <summary>
-    /// Auflistung möglicher abzurechnender Dienstleistungen.
-    /// </summary>
-    public enum Dienstleistungstyp { AblesungHalbjaehrlich, AblesungJaehrlich, AblesungMonatlich, AblesungVierteljaehrlich, AblesungZusaetzlichKunde, AblesungZusaetzlichMsb, Auslesung2XTaeglichFernauslesung, AuslesungFernauslesung, AuslesungFernauslesungZusaetzlichMsb, AuslesungJaehrlichFernauslesung, AuslesungKompaktmengenumwerter, AuslesungManuellMsb, AuslesungMde, AuslesungMoatlichFernauslesung, AuslesungMonatlichFernauslesung, AuslesungStuendlichFernauslesung, AuslesungSystemmengenumwerter, AuslesungTaeglichFernauslesung, AuslesungTemperaturmengenumwerter, AuslesungVorgang, AuslesungZustandsmengenumwerter, DatenbereitstellungEinmalig, DatenbereitstellungHalbjaehrlich, DatenbereitstellungHistorischeLg, DatenbereitstellungJaehrlich, DatenbereitstellungMonatlich, DatenbereitstellungMonatlichZusaetzlich, DatenbereitstellungStuendlich, DatenbereitstellungTaeglich, DatenbereitstellungVierteljaehrlich, DatenbereitstellungWoechentlich, Entsperrung, Inkassokosten, Mahnkosten, Sperrung };
 
-    /// <summary>
-    /// Befestigungsart von Zählern
-    /// </summary>
-    public enum Befestigungsart { Dreipunkt, Einstutzen, Hutschiene, Stecktechnik, Zweistutzen };
 
-    /// <summary>
-    /// Die Messwerterfassung des Zählers
-    /// </summary>
-    public enum Messwerterfassung { Fernauslesbar, ManuellAusgelesene };
 
-    /// <summary>
-    /// Die Registeranzahl wird verwendet zur Charakterisierung von Zählern und daraus
-    /// resultierenden Tarifen.
-    /// </summary>
-    public enum Registeranzahl { Eintarif, Mehrtarif, Zweitarif };
 
-    /// <summary>
-    /// Unterscheidungsmöglichkeiten für die Sparte.
-    /// </summary>
-    public enum Sparte { Abwasser, Fernwaerme, Gas, Nahwaerme, Strom, StromUndGas, Wasser };
 
-    /// <summary>
-    /// Gibt an, ob es sich um einen Einrichtungs- oder Zweirichtungszähler handelt.
-    /// </summary>
-    public enum Zaehlerauspraegung { Einrichtungszaehler, Zweirichtungszaehler };
-
-    /// <summary>
-    /// Auflistung möglicher Größen von Zählern
-    /// </summary>
-    public enum Zaehlergroesse { G10, G100, G1000, G10000, G12500, G16, G160, G1600, G16000, G25, G250, G2500, G2Komma5, G4, G40, G400, G4000, G6, G65, G650, G6500 };
-
-    /// <summary>
-    /// Übersicht möglicher Anreden, z.B. eines Geschäftspartners.
-    /// </summary>
-    public enum Anrede { Eheleute, Erbengemeinschaft, Familie, Firma, Frau, Grundstuecksgemeinschaft, Herr };
-
-    /// <summary>
-    /// Gibt an, auf welchem Weg die Person oder der Geschäftspartner kontaktiert werden kann.
-    /// </summary>
-    public enum Kontaktart { EMail, Fax, Postweg, Sms, Telefon };
-
-    /// <summary>
-    /// Übersicht möglicher Titel, z.B. eines Geschäftspartners.
-    /// </summary>
-    public enum Titel { Dr, Prof, ProfDr };
-
-    /// <summary>
-    /// Über dieses ENUM kann eine thematische Zuordnung, beispielsweise eines Ansprechpartners,
-    /// vorgenommen werden.
-    /// </summary>
-    public enum Themengebiet { AllgemeinerInformationsaustausch, Alocat, AnUndAbmeldung, AnsprechpartnerAllgemein, AnsprechpartnerBdewDvgw, AnsprechpartnerItTechnik, Aperak, Bewegungsdaten, Bilanzierung, Bilanzkreiskoordinator, Bilanzkreisverantwortlicher, Contrl, DatenformateZertifikateVerschluesselungen, Debitorenmanagement, DemandSideManagement, EdiVereinbarung, Edifact, Einspeisung, Energiedatenmanagement, Fahrplanmanagement, Gabi, Geli, Geraeterueckgabe, Geraetewechsel, Gpke, Inbetriebnahme, Invoic, Kapazitaetsmanagement, Klaerfaelle, LastgaengeRlm, Lieferantenrahmenvertrag, Lieferantenwechsel, Mabis, Mahnwesen, Marktgebietsverantwortlicher, Marktkommunikation, MehrMindermengen, MsbMdl, Mscons, Netzabrechnung, Netzentgelte, Netzmanagement, Orders, Ordersp, Recht, Regulierungsmanagement, Reklamationen, Remadv, SperrenEntsperrenInkasso, Stammdaten, Stoerungsfaelle, TechnischeFragen, UmstellungInvoic, Utilmd, VerschluesselungSignatur, Vertragsmanagement, Vertrieb, Wim, ZaehlerstaendeSlp, Zahlungsverkehr, Zuordnungsvereinbarung };
-
-    /// <summary>
-    /// Diese Rollen kann ein Geschäftspartner einnehmen.
-    /// </summary>
-    public enum Geschaeftspartnerrolle { Dienstleister, Interessent, Kunde, Lieferant, Marktpartner };
-
-    /// <summary>
-    /// Hier wird festgelegt, ob der Geschäftspartner eine Person, eine Firma oder etwas anderes
-    /// ist.
-    /// </summary>
-    public enum Organisationstyp { KommunaleEinrichtung, Privatperson, StaatlicheBehoerde, Unternehmen };
-
-    /// <summary>
-    /// Bei diesem Enum handelt es sich um die Abbildung von Zählertypen der Sparten Strom und
-    /// Gas.
-    /// </summary>
-    public enum Zaehlertyp { Balgengaszaehler, Drehkolbenzaehler, Drehstromzaehler, ElektronischerZaehler, IntelligentesMesssystem, Leistungszaehler, Maximumzaehler, ModerneMesseinrichtung, Turbinenradgaszaehler, Ultraschallgaszaehler, Wechselstromzaehler, Wirbelgaszaehler };
-
-    /// <summary>
-    /// Bei diesem Enum handelt es sich um die Abbildung von besonderen Zählertyp-Spezifikationen
-    /// der Sparten Strom und Gas.
-    /// </summary>
-    public enum ZaehlertypSpezifikation { Edl21, Edl40, MmeMeda, MmeStandard, SonstigerEhz };
-
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
-
-    /// <summary>
-    /// Art der Konzessionsabgabe
-    /// </summary>
-    public enum AbgabeArt { Kas, Sa, Sas, Ta, Tas, Tk, Tks, Ts, Tss };
-
-    /// <summary>
-    /// Spezifiziert die Energierichtung einer Markt- und/oder Messlokation
-    /// </summary>
-    public enum Energierichtung { Aussp, Einsp };
-
-    /// <summary>
-    /// Verbrauchsart einer Marktlokation.
-    /// </summary>
-    public enum Verbrauchsart { Kl, Klw, Klws, W, Ws };
-
-    /// <summary>
-    /// Diese Rollen kann ein Marktteilnehmer einnehmen.
-    /// </summary>
-    public enum Marktrolle { Biko, Bkv, Btr, Dp, Eiv, Esa, Kn, Lf, Mgv, Msb, Nb, Rb, Uenb };
-
-    /// <summary>
-    /// Verwendungszweck der Werte Marktlokation
-    /// </summary>
-    public enum Verwendungszweck { Bilanzkreisabrechnung, Endkundenabrechnung, ErmittlungAusgeglichenheitBilanzkreis, Mehrmindermengenabrechnung, Netznutzungsabrechnung, UebermittlungAnDasHknr };
-
-    /// <summary>
-    /// Wärmenutzung Marktlokation
-    /// </summary>
-    public enum Waermenutzung { Direktheizung, Speicherheizung, Waermepumpe };
-
-    /// <summary>
-    /// Auflistung möglicher Netzebenen innerhalb der Energiearten Strom und Gas.
-    /// </summary>
-    public enum Netzebene { Hd, Hsp, HspMspUmsp, Hss, HssHspUmsp, Md, Msp, MspNspUmsp, Nd, Nsp };
 
     public partial class Messlokation
     {
