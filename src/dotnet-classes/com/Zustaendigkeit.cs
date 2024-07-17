@@ -107,11 +107,6 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Über dieses ENUM kann eine thematische Zuordnung, beispielsweise eines Ansprechpartners,
-    /// vorgenommen werden.
-    /// </summary>
-    public enum Themengebiet { AllgemeinerInformationsaustausch, Alocat, AnUndAbmeldung, AnsprechpartnerAllgemein, AnsprechpartnerBdewDvgw, AnsprechpartnerItTechnik, Aperak, Bewegungsdaten, Bilanzierung, Bilanzkreiskoordinator, Bilanzkreisverantwortlicher, Contrl, DatenformateZertifikateVerschluesselungen, Debitorenmanagement, DemandSideManagement, EdiVereinbarung, Edifact, Einspeisung, Energiedatenmanagement, Fahrplanmanagement, Gabi, Geli, Geraeterueckgabe, Geraetewechsel, Gpke, Inbetriebnahme, Invoic, Kapazitaetsmanagement, Klaerfaelle, LastgaengeRlm, Lieferantenrahmenvertrag, Lieferantenwechsel, Mabis, Mahnwesen, Marktgebietsverantwortlicher, Marktkommunikation, MehrMindermengen, MsbMdl, Mscons, Netzabrechnung, Netzentgelte, Netzmanagement, Orders, Ordersp, Recht, Regulierungsmanagement, Reklamationen, Remadv, SperrenEntsperrenInkasso, Stammdaten, Stoerungsfaelle, TechnischeFragen, UmstellungInvoic, Utilmd, VerschluesselungSignatur, Vertragsmanagement, Vertrieb, Wim, ZaehlerstaendeSlp, Zahlungsverkehr, Zuordnungsvereinbarung };
 
     public partial class Zustaendigkeit
     {

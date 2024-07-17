@@ -100,10 +100,6 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Auflistung der Erzeugungsarten von Energie.
-    /// </summary>
-    public enum Erzeugungsart { Biogas, Biomasse, Fossil, Gas, Geothermie, Kernkraft, KlimaneutralesGas, Kohle, Kwk, Solar, Sonstige, SonstigeEeg, Wasser, Wind };
 
     public partial class Energieherkunft
     {

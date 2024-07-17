@@ -199,81 +199,20 @@ namespace BO4EDotNet
 
 
 
-    /// <summary>
-    /// Festlegung, ob der Auf- oder Abschlag mit relativen oder absoluten Werten erfolgt.
-    /// </summary>
-    public enum AufAbschlagstyp { Absolut, Relativ };
 
-    /// <summary>
-    /// Der Preis, auf den sich ein Auf- oder Abschlag bezieht.
-    /// </summary>
-    public enum AufAbschlagsziel { ArbeitspreisEintarif, ArbeitspreisHt, ArbeitspreisHtNt, ArbeitspreisNt, Gesamtpreis, Grundpreis };
 
-    /// <summary>
-    /// In diesem Enum werden die Währungen und ihre Untereinheiten definiert, beispielsweise für
-    /// die Verwendung in Preisen.
-    /// </summary>
-    public enum Waehrungseinheit { Ct, Eur };
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
-    /// <summary>
-    /// Auflistung möglicher übergreifenden Geräteklassen.
-    /// </summary>
-    public enum Geraeteklasse { Kommunikationseinrichtung, Mengenumwerter, SmartmeterGateway, Steuerbox, TechnischeSteuereinrichtung, Wandler, Zaehleinrichtung };
 
-    /// <summary>
-    /// Auflistung möglicher abzurechnender Gerätetypen.
-    /// </summary>
-    public enum Geraetetyp { Blockstromwandler, Datenlogger, DslKom, Edl21, Edl40, Edl40_Zaehleraufsatz, EthernetKom, HoechstbelastungsAnzeiger, Impulsgeber, IntelligentesMessystem, Kombimesswandler, KombimesswandlerImsMme, Kommunikationsanschluss, KompaktMu, LteKom, Mengenumwerter, MesswandlersatzImsMme, Modem, ModemFestnetz, ModemFunk, ModemGprs, ModemGprsMLg, ModemGsm, ModemGsmMLg, ModemGsmOLg, ModerneMesseinrichtung, Multiplexanlage, OptionaleZusZaehleinrichtung, Pauschalanlage, PlcKom, Rundsteuerempfaenger, RundsteuerempfaengerImsMme, SonstigesGeraet, Spannungswandler, Steuereinrichtung, Stromwandler, Summationsgeraet, SystemMu, Tarifschaltgeraet, TarifschaltgeraetImsMme, Telefonanschluss, Telekommunikationseinrichtung, TemperaturKompensation, TemperaturMu, Verstaerkeranlage, ZustandsMu };
 
-    /// <summary>
-    /// Auflistung sämtlicher existierender Geschäftsobjekte.
-    /// </summary>
-    public enum Typ { Angebot, Ausschreibung, Buendelvertrag, Energiemenge, Fremdkosten, Geraet, Geschaeftsobjekt, Geschaeftspartner, Kosten, Lastgang, Marktlokation, Marktteilnehmer, Messlokation, Netznutzungsrechnung, Person, Preisblatt, Preisblattdienstleistung, Preisblatthardware, Preisblattkonzessionsabgabe, Preisblattmessung, Preisblattnetznutzung, Preisblattumlagen, Rechnung, Region, Regionaltarif, Standorteigenschaften, Tarif, Tarifinfo, Tarifkosten, Tarifpreisblatt, Vertrag, Zaehler, Zeitreihe };
 
-    /// <summary>
-    /// Voraussetzungen, die erfüllt sein müssen, damit dieser Tarif zur Anwendung kommen kann.
-    /// </summary>
-    public enum Voraussetzungen { AlterKundenanlage, Altvertrag, Anlagebeschaffenheit, Anschlussart, Anschlusswert, AusschlussGrossverbraucher, BesondereVerbrauchsstelle, BestimmteVertragsformalitaeten, BestimmterAbnahmefall, Betriebsstundenbegrenzung, Direktvertrieb, Einzugsermaechtigung, Familienstruktur, Freigabezeiten, Gewerbe, KombiBoni, Lastprofil, LieferanbindungAlle, LieferanbindungEine, LieferungsbeschraenkungGasart, MaxZaehlerLieferstellen, MehrereZaehlerAbnahmestellen, Mindestumsatz, Mitgliedschaft, NachweisZahlungsfaehigkeit, Neukunde, NeukundeMitVoraussetzungen, Niedrigenergie, Onlinevoraussetzung, OrtsteileLiefergebiet, Selbstablesung, StaatlicheFoerderung, UmstellungEnergieart, VorgeschriebeneZusatzanlage, WaermebedarfErdgas, ZaehlertypGroesse, Zeitpunkt, Zusatzmodalitaet, Zusatzprodukt };
 
-    /// <summary>
-    /// Auflistung der Erzeugungsarten von Energie.
-    /// </summary>
-    public enum Erzeugungsart { Biogas, Biomasse, Fossil, Gas, Geothermie, Kernkraft, KlimaneutralesGas, Kohle, Kwk, Solar, Sonstige, SonstigeEeg, Wasser, Wind };
 
-    /// <summary>
-    /// Unterscheidungsmöglichkeiten für die Sparte.
-    /// </summary>
-    public enum Sparte { Abwasser, Fernwaerme, Gas, Nahwaerme, Strom, StromUndGas, Wasser };
 
-    /// <summary>
-    /// Aufzählung der Labels für Öko-Strom von verschiedenen Herausgebern.
-    /// </summary>
-    public enum Oekolabel { Energreen, Gasgreen, GasgreenGruenerStrom, GruenerStrom, GruenerStromGold, GruenerStromSilber, GruenesGas, NaturwattStrom, OkPower, RenewablePlus, Watergreen, WatergreenPlus };
 
-    /// <summary>
-    /// Zertifikate für Ökostrom von verschiedenen Herausgebern.
-    /// </summary>
-    public enum Oekozertifikat { Bet, CmsEe01, CmsEe02, Eecs, Fraunhofer, Freiberg, KlimaInvest, Lga, Recs, RegsEgl, Tuev, TuevHessen, TuevNord, TuevRheinland, TuevSued, TuevSuedEe01, TuevSuedEe02 };
 
-    /// <summary>
-    /// Aufzählung der Möglichkeiten für die Vergabe von Preisgarantien
-    /// </summary>
-    public enum Preisgarantietyp { AllePreisbestandteileBrutto, AllePreisbestandteileNetto, NurEnergiepreis, PreisbestandteileOhneAbgaben };
 
-    /// <summary>
-    /// Übersicht der verschiedenen Gültigkeiten zur Umsetzung von Positiv- bzw. Negativlisten.
-    /// </summary>
-    public enum Gueltigkeitstyp { NichtIn, NurIn, NurInKombinationMit };
 
-    /// <summary>
-    /// Mit diesen Kriterien können regionale Bereiche definiert werden.
-    /// </summary>
-    public enum Tarifregionskriterium { GrundversorgerNummer, NetzNummer, Ort, Postleitzahl, Region };
 
     public partial class RegionalerAufAbschlag
     {

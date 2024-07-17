@@ -141,26 +141,9 @@ namespace BO4EDotNet
 
 
 
-    /// <summary>
-    /// Festlegung, ob der Auf- oder Abschlag mit relativen oder absoluten Werten erfolgt.
-    /// </summary>
-    public enum AufAbschlagstyp { Absolut, Relativ };
 
-    /// <summary>
-    /// Der Preis, auf den sich ein Auf- oder Abschlag bezieht.
-    /// </summary>
-    public enum AufAbschlagsziel { ArbeitspreisEintarif, ArbeitspreisHt, ArbeitspreisHtNt, ArbeitspreisNt, Gesamtpreis, Grundpreis };
 
-    /// <summary>
-    /// In diesem Enum werden die Währungen und ihre Untereinheiten definiert, beispielsweise für
-    /// die Verwendung in Preisen.
-    /// </summary>
-    public enum Waehrungseinheit { Ct, Eur };
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
     public partial class AufAbschlag
     {
