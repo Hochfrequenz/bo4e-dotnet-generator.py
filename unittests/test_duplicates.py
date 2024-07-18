@@ -19,7 +19,7 @@ class TestRemoveDuplicateDefinitions:
     """
 
     @pytest.fixture
-    def output_dir(self, tmp_path) -> Generator[Path, None, None]:
+    def output_dir(self, tmp_path: Path) -> Generator[Path, None, None]:
         """Copy the generated classes to the temporary directory."""
         test_data_root = Path(__file__).parent / "test-data"
         # Path to the source directory containing the generated C# files with quicktype
@@ -30,7 +30,7 @@ class TestRemoveDuplicateDefinitions:
         shutil.copytree(source_dir, output_dir, dirs_exist_ok=True)
         yield output_dir
 
-    def test_remove_duplicate_definitions_with_setup_and_teardown(self, output_dir) -> None:
+    def test_remove_duplicate_definitions_with_setup_and_teardown(self, output_dir: Path) -> None:
         """
         Test case for removing duplicate class and enum definitions from C# files using setup and teardown.
         """
