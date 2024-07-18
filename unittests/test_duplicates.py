@@ -9,7 +9,7 @@ sys.path.insert(
     0, str(Path(__file__).resolve().parents[1] / "src")
 )  # it is needed just one time to be able to import the module
 
-from bo4egenerator import duplicates
+from bo4egenerator import duplicates  # pylint: disable=wrong-import-position
 
 
 class TestRemoveDuplicateDefinitions:
@@ -18,13 +18,13 @@ class TestRemoveDuplicateDefinitions:
     """
 
     @pytest.fixture
-    def temp_dir(self):
+    def temp_dir(self) -> str:  # type: ignore
         """Create a temporary directory for the test."""
         with TemporaryDirectory() as temp_dir:
             yield temp_dir
 
     @pytest.fixture
-    def output_dir(self, temp_dir):
+    def output_dir(self, temp_dir: str) -> str:  # type: ignore
         """Copy the generated classes to the temporary directory."""
         project_root = Path.cwd() / "unittests" / "test-data"
         # Path to the source directory containing the generated C# files with quicktype
@@ -34,7 +34,7 @@ class TestRemoveDuplicateDefinitions:
         shutil.copytree(source_dir, output_dir, dirs_exist_ok=True)
         yield output_dir
 
-    def test_remove_duplicate_definitions_with_setup_and_teardown(self, temp_dir):
+    def test_remove_duplicate_definitions_with_setup_and_teardown(self) -> None:
         """
         Test case for removing duplicate class and enum definitions from C# files using setup and teardown.
         """
@@ -45,7 +45,7 @@ class TestRemoveDuplicateDefinitions:
             shutil.copytree(source_dir, output_dir, dirs_exist_ok=True)
 
             # Run the process_directory function on the test directory
-            duplicates.process_directory(output_dir)
+            duplicates.process_directory(Path(output_dir))
 
             # Verify that duplicate class and enum definitions are removed
             bo_file_path = output_dir / Path("bo") / Path("Angebot.cs")
