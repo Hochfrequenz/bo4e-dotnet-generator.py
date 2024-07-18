@@ -42,7 +42,7 @@ class TestTooling(unittest.TestCase):
         mock_run.assert_called_once_with(
             "echo test", shell=True, cwd=Path("."), text=True, capture_output=True, check=True
         )
-        self.assertEqual(result.returncode, 0)
+        assert result.returncode == 0
 
 
 if __name__ == "__main__":
