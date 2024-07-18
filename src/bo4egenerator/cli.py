@@ -21,12 +21,11 @@ _logger = logging.getLogger(__name__)
 
 @app.command()
 def main(
-    schemas_dir: Path = typer.Argument(
-        Path.cwd() / "schemas", help="Directory path containing the BO4E schema files."
-    ),
+    schemas_dir: Path = typer.Argument(Path.cwd() / "schemas", help="Directory path containing the BO4E schema files."),
     output: Path = typer.Option(
-        Path.cwd() / "dotnet-classes", help="Output directory path for the generated C# classes. default: dotnet-classes"
-    )
+        Path.cwd() / "dotnet-classes",
+        help="Output directory path for the generated C# classes. default: dotnet-classes",
+    ),
 ) -> None:
     """
     It generates C# classes from the BO4E schema files with help of Quicktype.
