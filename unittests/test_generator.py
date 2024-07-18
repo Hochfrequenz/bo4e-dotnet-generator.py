@@ -4,7 +4,7 @@ Unit test class for the Generator module.
 
 from pathlib import Path
 
-from bo4egenerator import generator  # pylint: disable=wrong-import-position
+from bo4egenerator import generator
 
 
 class TestGenerator:
