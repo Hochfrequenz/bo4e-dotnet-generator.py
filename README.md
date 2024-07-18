@@ -18,6 +18,19 @@ For fetching last json schemas you can use [`BO4E-Schema-Tool`](https://github.c
 pip install bo4e-dotnet-generator
 ```
 
+The `bo4e-dotnet-generator` tool has two arguments:
+
+1. `schema_dir`: This is the directory path that should contain the BO4E schema files. It is a required argument.
+
+2. `output_dir`: This is the output directory path where the generated C# classes will be saved. If not specified, the default directory is `dotnet-classes`.
+
+To use the tool, run the following command in your terminal:
+
+```bash
+bo4e-dotnet-generator [schema_dir] [output_dir]
+```
+
+
 ## How to use this Repository on Your Machine (as a developer)
 
 Please follow the instructions in our
