@@ -1,8 +1,9 @@
 # Generate C# Code from BO4E JSON Schemas
 
 This tool generates C# dotnet classes based on [BO4E-JSON-Schemas](https://github.com/bo4e/BO4E-Schemas).
-For fetching last json schemas it uses [`BO4E-Schema-Tool`](https://github.com/bo4e/BO4E-Schema-Tool) tool.
 it takes advantage of QuickType npm package to generate C# classes from JSON schemas.
+
+For fetching last json schemas you can use [`BO4E-Schema-Tool`](https://github.com/bo4e/BO4E-Schema-Tool) tool.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Python Versions (officially) supported](https://img.shields.io/pypi/pyversions/bo4e-dotnet-generator.svg)

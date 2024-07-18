@@ -29,8 +29,7 @@ def main(
     )
 ) -> None:
     """
-    It will use BO4E-Schema-Tool and
-    generate C# classes from the BO4E schema files with help of Quicktype.
+    It generates C# classes from the BO4E schema files with help of Quicktype.
 
     args:
         output (Path): Output directory for the generated C# classes.
