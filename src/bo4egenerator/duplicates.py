@@ -164,8 +164,8 @@ def should_remove_class(class_name: str, directory_path: Path) -> bool:
     """
     make sure if there is a .cs file for that? if there is, then remove it.
     """
-    class_file_path_bo = directory_path / "bo" / f"{class_name}.cs"
-    class_file_path_com = directory_path / "com" / f"{class_name}.cs"
+    class_file_path_bo = directory_path / Path("bo") / Path(f"{class_name}.cs")
+    class_file_path_com = directory_path / Path("com") / Path(f"{class_name}.cs")
     return class_file_path_bo.exists() or class_file_path_com.exists()
 
 
@@ -173,7 +173,7 @@ def should_remove_enum(enum_name: str, directory_path: Path) -> bool:
     """
     make sure if there is a .cs file for that? if there is, then remove it.
     """
-    enum_file_path = directory_path / "enum" / f"{enum_name}.cs"
+    enum_file_path = directory_path / Path("enum") / Path(f"{enum_name}.cs")
     return enum_file_path.exists()
 
 

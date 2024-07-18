@@ -2,17 +2,13 @@
 Test the tooling module.
 """
 
-import sys
-import unittest
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 from bo4egenerator import tooling
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-
-class TestTooling(unittest.TestCase):
+class TestTooling:
     """
     A test case for the Tooling class.
     """
@@ -43,7 +39,3 @@ class TestTooling(unittest.TestCase):
             "echo test", shell=True, cwd=Path("."), text=True, capture_output=True, check=True
         )
         assert result.returncode == 0
-
-
-if __name__ == "__main__":
-    unittest.main()
