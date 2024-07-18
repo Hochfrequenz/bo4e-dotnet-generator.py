@@ -2,6 +2,8 @@
 Unit test class for the Generator module.
 """
 
+import os
+import platform
 from pathlib import Path
 
 from bo4egenerator import generator
@@ -23,9 +25,14 @@ class TestGenerator:
         test_data_root = Path(__file__).parent / "test-data"
         schemas_dir = test_data_root / "schemas"
         output_dir = test_data_root / "generated-classes"
-        quicktype_executable = "quicktype"  # Assuming it's in PATH on Linux (GH Actions)
+
+        # Determine the Quicktype executable path based on the operating system
+        path_app_data = os.getenv("APPDATA")
+        if platform.system() == "Windows" and path_app_data:
+            quicktype_executable = os.path.join(path_app_data, "npm", "quicktype.cmd")
+        else:
+            quicktype_executable = "quicktype"  # Assuming it's in PATH on Linux (GH Actions)
 
         generator.generate_csharp_classes(test_data_root, schemas_dir, output_dir, quicktype_executable)
-
         angebot_file = Path(output_dir / "bo" / "Angebot.cs")
         assert angebot_file.exists()
