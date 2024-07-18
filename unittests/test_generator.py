@@ -26,7 +26,7 @@ class TestGenerator(unittest.TestCase):
         The Angebot schema file is used as an example for the test.
         It also checks if the generated `Angebot.cs` file exists in the output directory.
         """
-        project_root = Path.cwd() / "unittests" / "test-data"
+        project_root = Path(__file__).parent / "test-data"
         schemas_dir = project_root / "schemas"
         output_dir = project_root / "generated-classes"
         # Determine the Quicktype executable path based on the operating system
