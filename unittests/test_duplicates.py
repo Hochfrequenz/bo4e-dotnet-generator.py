@@ -40,7 +40,7 @@ class TestRemoveDuplicateDefinitions:
         shutil.copytree(source_dir, output_dir, dirs_exist_ok=True)
 
         # Run the process_directory function on the test directory
-        duplicates.process_directory(Path(output_dir))
+        duplicates.remove_duplicate_definitions(Path(output_dir))
 
         # Verify that duplicate class and enum definitions are removed
         bo_file_path = output_dir / Path("bo") / Path("Angebot.cs")

@@ -1,6 +1,7 @@
 """
-contains CLI logic for bo4e-dotnet-generator.
-this is the main entry point for the bo4e-generator. It generates C# classes from the BO4E schema files.
+Contains CLI logic for bo4e-dotnet-generator.
+This is the main entry point for the bo4e-generator.
+It generates C# classes from the BO4E schema files and removes duplicate definitions.
 """
 
 import logging
@@ -12,10 +13,10 @@ from pathlib import Path
 import typer
 
 from bo4egenerator.configuration.log_setup import _logger
-from bo4egenerator.duplicates import process_directory
+from bo4egenerator.duplicates import remove_duplicate_definitions  # Updated import
 from bo4egenerator.generator import generate_csharp_classes
 
-app = typer.Typer(help="It generates C# classes from the BO4E schema files.")
+app = typer.Typer(help="Generate C# classes from the BO4E schema files and remove duplicate definitions.")
 _logger = logging.getLogger(__name__)
 
 
@@ -28,9 +29,10 @@ def main(
     ),
 ) -> None:
     """
-    It generates C# classes from the BO4E schema files with help of Quicktype.
+    Generate C# classes from the BO4E schema files with help of Quicktype and remove duplicate definitions.
 
-    args:
+    Args:
+        schemas_dir (Path): Directory containing the BO4E schema files.
         output (Path): Output directory for the generated C# classes.
     """
     # Define the base directories
@@ -53,11 +55,13 @@ def main(
     shutil.copytree(generated_output_dir, output)  # Copy the generated output to the final output directory
 
     # Remove duplicate class and enum definitions
-    process_directory(output)
+    _logger.info("Removing duplicate definitions...")
+    remove_duplicate_definitions(output)
+    _logger.info("Duplicate definitions removed successfully.")
 
 
 def cli() -> None:
-    """entry point of the script defined in pyproject.toml"""
+    """Entry point of the script defined in pyproject.toml"""
     # ⚠ If you ever change the name of this module (cli.py) or this function (def cli), be sure to update pyproject.toml
     app()
 
