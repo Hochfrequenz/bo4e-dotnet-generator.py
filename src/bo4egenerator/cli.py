@@ -14,7 +14,6 @@ import typer
 from bo4egenerator.configuration.log_setup import _logger
 from bo4egenerator.duplicates import process_directory
 from bo4egenerator.generator import generate_csharp_classes
-from bo4egenerator.tooling import running_bo4e_schema_tool
 
 app = typer.Typer(help="It generates C# classes from the BO4E schema files.")
 _logger = logging.getLogger(__name__)
@@ -22,20 +21,20 @@ _logger = logging.getLogger(__name__)
 
 @app.command()
 def main(
+    schemas_dir: Path = typer.Argument(Path.cwd() / "schemas", help="Directory path containing the BO4E schema files."),
     output: Path = typer.Option(
-        Path.cwd() / "dotnet-classes", help="Output directory for the generated C# classes. default: dotnet-classes"
-    )
+        Path.cwd() / "dotnet-classes",
+        help="Output directory path for the generated C# classes. default: dotnet-classes",
+    ),
 ) -> None:
     """
-    It will use BO4E-Schema-Tool and
-    generate C# classes from the BO4E schema files with help of Quicktype.
+    It generates C# classes from the BO4E schema files with help of Quicktype.
 
     args:
         output (Path): Output directory for the generated C# classes.
     """
     # Define the base directories
     project_root = Path.cwd()  # Root directory of the project
-    schemas_dir = project_root / "schemas"
     generated_output_dir = project_root / "generated-dotnet-classes"
 
     # Determine the Quicktype executable path based on the operating system
@@ -44,9 +43,6 @@ def main(
         quicktype_executable = os.path.join(path_app_data, "npm", "quicktype.cmd")
     else:
         quicktype_executable = "quicktype"  # Assuming it's in PATH on Linux (GH Actions)
-
-    # Install BO4E-Schema-Tool and generate schemas
-    running_bo4e_schema_tool(str(schemas_dir))
 
     # Generate C# classes from the schemas
     generate_csharp_classes(project_root, schemas_dir, generated_output_dir, quicktype_executable)
