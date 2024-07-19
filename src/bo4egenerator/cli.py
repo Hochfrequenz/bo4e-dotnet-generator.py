@@ -13,7 +13,7 @@ from pathlib import Path
 import typer
 
 from bo4egenerator.configuration.log_setup import _logger
-from bo4egenerator.duplicates import remove_duplicate_definitions  # Updated import
+from bo4egenerator.duplicates import remove_duplicate_definitions
 from bo4egenerator.generator import generate_csharp_classes
 
 app = typer.Typer(help="Generate C# classes from the BO4E schema files and remove duplicate definitions.")
