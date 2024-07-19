@@ -3,12 +3,15 @@ This module generates C# classes from BO4E schema files using the Quicktype npm 
 It provides functionality to process JSON schema files and create corresponding C# class files.
 """
 
+import logging
 import os
 import subprocess
 from pathlib import Path
 from typing import List
 
 from bo4egenerator.configuration.log_setup import _logger
+
+_logger = logging.getLogger(__name__)
 
 
 class CSharpClassGenerator:
