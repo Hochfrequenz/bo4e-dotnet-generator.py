@@ -114,10 +114,6 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Mit dieser Aufzählung können arithmetische Operationen festgelegt werden.
-    /// </summary>
-    public enum ArithmetischeOperation { Addition, Division, Multiplikation, Subtraktion };
 
     public partial class Messlokationszuordnung
     {

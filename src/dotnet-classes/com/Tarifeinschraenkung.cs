@@ -119,30 +119,10 @@ namespace BO4EDotNet
     }
 
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
-    /// <summary>
-    /// Auflistung möglicher übergreifenden Geräteklassen.
-    /// </summary>
-    public enum Geraeteklasse { Kommunikationseinrichtung, Mengenumwerter, SmartmeterGateway, Steuerbox, TechnischeSteuereinrichtung, Wandler, Zaehleinrichtung };
 
-    /// <summary>
-    /// Auflistung möglicher abzurechnender Gerätetypen.
-    /// </summary>
-    public enum Geraetetyp { Blockstromwandler, Datenlogger, DslKom, Edl21, Edl40, Edl40_Zaehleraufsatz, EthernetKom, HoechstbelastungsAnzeiger, Impulsgeber, IntelligentesMessystem, Kombimesswandler, KombimesswandlerImsMme, Kommunikationsanschluss, KompaktMu, LteKom, Mengenumwerter, MesswandlersatzImsMme, Modem, ModemFestnetz, ModemFunk, ModemGprs, ModemGprsMLg, ModemGsm, ModemGsmMLg, ModemGsmOLg, ModerneMesseinrichtung, Multiplexanlage, OptionaleZusZaehleinrichtung, Pauschalanlage, PlcKom, Rundsteuerempfaenger, RundsteuerempfaengerImsMme, SonstigesGeraet, Spannungswandler, Steuereinrichtung, Stromwandler, Summationsgeraet, SystemMu, Tarifschaltgeraet, TarifschaltgeraetImsMme, Telefonanschluss, Telekommunikationseinrichtung, TemperaturKompensation, TemperaturMu, Verstaerkeranlage, ZustandsMu };
 
-    /// <summary>
-    /// Auflistung sämtlicher existierender Geschäftsobjekte.
-    /// </summary>
-    public enum Typ { Angebot, Ausschreibung, Buendelvertrag, Energiemenge, Fremdkosten, Geraet, Geschaeftsobjekt, Geschaeftspartner, Kosten, Lastgang, Marktlokation, Marktteilnehmer, Messlokation, Netznutzungsrechnung, Person, Preisblatt, Preisblattdienstleistung, Preisblatthardware, Preisblattkonzessionsabgabe, Preisblattmessung, Preisblattnetznutzung, Preisblattumlagen, Rechnung, Region, Regionaltarif, Standorteigenschaften, Tarif, Tarifinfo, Tarifkosten, Tarifpreisblatt, Vertrag, Zaehler, Zeitreihe };
 
-    /// <summary>
-    /// Voraussetzungen, die erfüllt sein müssen, damit dieser Tarif zur Anwendung kommen kann.
-    /// </summary>
-    public enum Voraussetzungen { AlterKundenanlage, Altvertrag, Anlagebeschaffenheit, Anschlussart, Anschlusswert, AusschlussGrossverbraucher, BesondereVerbrauchsstelle, BestimmteVertragsformalitaeten, BestimmterAbnahmefall, Betriebsstundenbegrenzung, Direktvertrieb, Einzugsermaechtigung, Familienstruktur, Freigabezeiten, Gewerbe, KombiBoni, Lastprofil, LieferanbindungAlle, LieferanbindungEine, LieferungsbeschraenkungGasart, MaxZaehlerLieferstellen, MehrereZaehlerAbnahmestellen, Mindestumsatz, Mitgliedschaft, NachweisZahlungsfaehigkeit, Neukunde, NeukundeMitVoraussetzungen, Niedrigenergie, Onlinevoraussetzung, OrtsteileLiefergebiet, Selbstablesung, StaatlicheFoerderung, UmstellungEnergieart, VorgeschriebeneZusatzanlage, WaermebedarfErdgas, ZaehlertypGroesse, Zeitpunkt, Zusatzmodalitaet, Zusatzprodukt };
 
     public partial class Tarifeinschraenkung
     {

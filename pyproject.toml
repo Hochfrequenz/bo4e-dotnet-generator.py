@@ -17,8 +17,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    "BO4E-Schema-Tool>=0.0.7",
-    "typer",
+    "typer"
     "tree-sitter-c-sharp"
     # add all the dependencies here
 ]

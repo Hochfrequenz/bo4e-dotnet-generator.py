@@ -100,10 +100,6 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Auflistung möglicher abzurechnender Dienstleistungen.
-    /// </summary>
-    public enum Dienstleistungstyp { AblesungHalbjaehrlich, AblesungJaehrlich, AblesungMonatlich, AblesungVierteljaehrlich, AblesungZusaetzlichKunde, AblesungZusaetzlichMsb, Auslesung2XTaeglichFernauslesung, AuslesungFernauslesung, AuslesungFernauslesungZusaetzlichMsb, AuslesungJaehrlichFernauslesung, AuslesungKompaktmengenumwerter, AuslesungManuellMsb, AuslesungMde, AuslesungMoatlichFernauslesung, AuslesungMonatlichFernauslesung, AuslesungStuendlichFernauslesung, AuslesungSystemmengenumwerter, AuslesungTaeglichFernauslesung, AuslesungTemperaturmengenumwerter, AuslesungVorgang, AuslesungZustandsmengenumwerter, DatenbereitstellungEinmalig, DatenbereitstellungHalbjaehrlich, DatenbereitstellungHistorischeLg, DatenbereitstellungJaehrlich, DatenbereitstellungMonatlich, DatenbereitstellungMonatlichZusaetzlich, DatenbereitstellungStuendlich, DatenbereitstellungTaeglich, DatenbereitstellungVierteljaehrlich, DatenbereitstellungWoechentlich, Entsperrung, Inkassokosten, Mahnkosten, Sperrung };
 
     public partial class Dienstleistung
     {

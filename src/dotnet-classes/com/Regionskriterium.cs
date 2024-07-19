@@ -108,15 +108,7 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Übersicht der verschiedenen Gültigkeiten zur Umsetzung von Positiv- bzw. Negativlisten.
-    /// </summary>
-    public enum Gueltigkeitstyp { NichtIn, NurIn, NurInKombinationMit };
 
-    /// <summary>
-    /// Klassifizierung der Kriterien für eine regionale Eingrenzung.
-    /// </summary>
-    public enum Regionskriteriumtyp { BilanzierungsGebietNummer, BundeslandName, Bundeslandkennziffer, Bundesweit, EinwohnerzahlGemeinde, EinwohnerzahlOrt, GemeindeName, Gemeindekennziffer, GrundversorgerNameGas, GrundversorgerNameStrom, GrundversorgerNummerGas, GrundversorgerNummerStrom, KmUmkreis, KreisName, Kreiskennziffer, MarktgebietName, MarktgebietNummer, MsbName, MsbNummer, NetzGas, NetzStrom, NetzbetreiberNameGas, NetzbetreiberNameStrom, NetzbetreiberNummerGas, NetzbetreiberNummerStrom, Ort, PlzBereich, Postleitzahl, Postort, RegelgebietName, RegelgebietNummer, VersorgerName, VersorgerNummer };
 
     public partial class Regionskriterium
     {

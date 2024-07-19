@@ -99,31 +99,10 @@ namespace BO4EDotNet
         public object Wert { get; set; }
     }
 
-    /// <summary>
-    /// Einheit: Messgrößen, die per Messung oder Vorgabe ermittelt werden können.
-    /// </summary>
-    public enum Mengeneinheit { Halbjahr, Jahr, Kubikmeter, Kvar, Kvarh, Kw, Kwh, Kwhk, Minute, Monat, Mw, Mwh, Prozent, Quartal, Sekunde, Stueck, Stunde, Tag, Var, Varh, ViertelStunde, W, Wh, Woche };
 
-    /// <summary>
-    /// Der Status eines Zählerstandes
-    /// </summary>
-    public enum Messwertstatus { Abgelesen, AngabeFuerLieferschein, Energiemengesummiert, Ersatzwert, Fehlt, NichtVerwendbar, Prognosewert, Vorlaeufigerwert, Vorschlagswert };
 
-    /// <summary>
-    /// Gibt an, ob es sich um eine Prognose oder eine Messung handelt, beispielsweise bei der
-    /// Abbildung eines Verbrauchs.
-    /// </summary>
-    public enum Wertermittlungsverfahren { Messung, Prognose };
 
-    /// <summary>
-    /// Gibt an, ob es sich um eine Markt- oder Messlokation handelt.
-    /// </summary>
-    public enum Lokationstyp { Malo, Melo };
 
-    /// <summary>
-    /// Auflistung sämtlicher existierender Geschäftsobjekte.
-    /// </summary>
-    public enum Typ { Angebot, Ausschreibung, Buendelvertrag, Energiemenge, Fremdkosten, Geraet, Geschaeftsobjekt, Geschaeftspartner, Kosten, Lastgang, Marktlokation, Marktteilnehmer, Messlokation, Netznutzungsrechnung, Person, Preisblatt, Preisblattdienstleistung, Preisblatthardware, Preisblattkonzessionsabgabe, Preisblattmessung, Preisblattnetznutzung, Preisblattumlagen, Rechnung, Region, Regionaltarif, Standorteigenschaften, Tarif, Tarifinfo, Tarifkosten, Tarifpreisblatt, Vertrag, Zaehler, Zeitreihe };
 
     public partial class Energiemenge
     {
