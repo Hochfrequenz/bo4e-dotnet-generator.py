@@ -14,7 +14,7 @@ from bo4egenerator.configuration.log_setup import _logger
 _logger = logging.getLogger(__name__)
 
 
-class CSharpClassGenerator:
+class CSharpClassGenerator:  # pylint: disable=too-few-public-methods
     """
     A class to handle the generation of C# classes from BO4E schema files.
     """
