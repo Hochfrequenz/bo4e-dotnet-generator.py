@@ -10,6 +10,8 @@ import re
 from pathlib import Path
 from typing import Dict, List, Tuple
 
+from bo4egenerator.configuration.log_setup import _logger
+
 _logger = logging.getLogger(__name__)
 
 
