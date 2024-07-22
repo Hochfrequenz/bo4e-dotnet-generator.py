@@ -7,7 +7,6 @@ import logging
 import os
 import subprocess
 from pathlib import Path
-from typing import List
 
 from bo4egenerator.configuration.log_setup import _logger
 
@@ -56,7 +55,7 @@ class CSharpClassGenerator:  # pylint: disable=too-few-public-methods
         if not self.schemas_dir.is_dir():
             raise ValueError(f"Schemas directory does not exist: {self.schemas_dir}")
 
-    def _get_schema_files(self) -> List[Path]:
+    def _get_schema_files(self) -> list[Path]:
         """
         Get a list of all JSON schema files in the schemas directory.
 
@@ -87,7 +86,7 @@ class CSharpClassGenerator:  # pylint: disable=too-few-public-methods
         command = self._build_quicktype_command(schema_file, output_file)
         self._run_quicktype_command(command, schema_file.parent)
 
-    def _build_quicktype_command(self, schema_file: Path, output_file: Path) -> List[str]:
+    def _build_quicktype_command(self, schema_file: Path, output_file: Path) -> list[str]:
         """
         Build the Quicktype command for generating a C# class.
 
@@ -112,7 +111,7 @@ class CSharpClassGenerator:  # pylint: disable=too-few-public-methods
             "BO4EDotNet",
         ]
 
-    def _run_quicktype_command(self, command: List[str], cwd: Path) -> None:
+    def _run_quicktype_command(self, command: list[str], cwd: Path) -> None:
         """
         Run the Quicktype command and handle any errors.
 
