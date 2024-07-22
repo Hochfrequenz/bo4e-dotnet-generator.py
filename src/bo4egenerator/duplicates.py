@@ -8,11 +8,14 @@ import logging
 import os
 import re
 from pathlib import Path
-from typing import Dict, List, Tuple
 
 from bo4egenerator.configuration.log_setup import _logger
 
 _logger = logging.getLogger(__name__)
+
+SINGLE_LINE_ENUM_PATTERN = re.compile(r"\s*public\s+enum\s+\w+\s*{[^}]*}\s*;")
+CLASS_PATTERN = re.compile(r"\s*public\s+partial\s+class\s+(\w+)")
+ENUM_PATTERN = re.compile(r"\s*public\s+enum\s+(\w+)")
 
 
 class DuplicateRemover:
@@ -23,10 +26,6 @@ class DuplicateRemover:
     and remove them while preserving the main class in each file.
     """
 
-    SINGLE_LINE_ENUM_PATTERN = re.compile(r"\s*public\s+enum\s+\w+\s*{[^}]*}\s*;")
-    CLASS_PATTERN = re.compile(r"\s*public\s+partial\s+class\s+(\w+)")
-    ENUM_PATTERN = re.compile(r"\s*public\s+enum\s+(\w+)")
-
     def __init__(self, directory_path: Path):
         """
         Initialize the DuplicateRemover with the directory to process.
@@ -36,7 +35,7 @@ class DuplicateRemover:
         """
         self.directory_path = directory_path
 
-    def find_classes_and_enums_in_file(self, file_path: Path) -> Tuple[List[str], List[str]]:
+    def find_classes_and_enums_in_file(self, file_path: Path) -> tuple[list[str], list[str]]:
         """
         Find all class and enum definitions in a given file.
 
@@ -44,21 +43,21 @@ class DuplicateRemover:
             file_path (Path): The path to the file to analyze.
 
         Returns:
-            Tuple[List[str], List[str]]: A tuple containing two lists:
+            tuple[list[str], list[str]]: A tuple containing two lists:
                 - The first list contains the names of classes found in the file.
                 - The second list contains the names of enums found in the file.
         """
         with file_path.open("r", encoding="utf-8") as file:
             content = file.read()
-            classes = self.CLASS_PATTERN.findall(content)
-            enums = self.ENUM_PATTERN.findall(content)
+            classes = CLASS_PATTERN.findall(content)
+            enums = ENUM_PATTERN.findall(content)
 
         _logger.debug("Classes found: %s", classes)
         _logger.debug("Enums found: %s", enums)
         return classes, enums
 
     @staticmethod
-    def read_file(file_path: Path) -> List[str]:
+    def read_file(file_path: Path) -> list[str]:
         """
         Read the contents of a file.
 
@@ -66,7 +65,7 @@ class DuplicateRemover:
             file_path (Path): The path to the file to read.
 
         Returns:
-            List[str]: A list of strings, where each string is a line from the file.
+            list[str]: A list of strings, where each string is a line from the file.
         """
         try:
             with file_path.open("r", encoding="utf-8") as file:
@@ -76,13 +75,13 @@ class DuplicateRemover:
             return []
 
     @staticmethod
-    def write_file(file_path: Path, lines: List[str]) -> None:
+    def write_file(file_path: Path, lines: list[str]) -> None:
         """
         Write content to a file.
 
         Args:
             file_path (Path): The path to the file to write.
-            lines (List[str]): The content to write to the file, as a list of strings.
+            lines (list[str]): The content to write to the file, as a list of strings.
         """
         try:
             with file_path.open("w", encoding="utf-8") as file:
@@ -91,12 +90,12 @@ class DuplicateRemover:
             _logger.error("Error writing to file %s: %s", file_path, e)
 
     @staticmethod
-    def find_comment_block_start(lines: List[str], index: int) -> int:
+    def find_comment_block_start(lines: list[str], index: int) -> int:
         """
         Find the start of a comment block preceding a given line.
 
         Args:
-            lines (List[str]): The lines of the file.
+            lines (list[str]): The lines of the file.
             index (int): The index of the line to start searching from.
 
         Returns:
@@ -106,16 +105,16 @@ class DuplicateRemover:
             index -= 1
         return index
 
-    def parse_definitions(self, lines: List[str], main_class_name: str) -> Dict[str, Tuple[int, int]]:
+    def parse_definitions(self, lines: list[str], main_class_name: str) -> dict[str, tuple[int, int]]:
         """
         Parse class and enum definitions in the given lines.
 
         Args:
-            lines (List[str]): The lines of the file to parse.
+            lines (list[str]): The lines of the file to parse.
             main_class_name (str): The name of the main class in the file (which should not be removed).
 
         Returns:
-            Dict[str, Tuple[int, int]]: A dictionary mapping definition names to their start and end line numbers.
+            dict[str, tuple[int, int]]: A dictionary mapping definition names to their start and end line numbers.
         """
         definitions = {}
         in_definition = False
@@ -131,8 +130,8 @@ class DuplicateRemover:
             if comment_block_start_index is not None and not re.match(r"\s*///", line):
                 comment_block_start_index = None
 
-            if self.CLASS_PATTERN.match(line):
-                class_name = self.CLASS_PATTERN.findall(line)[0]
+            if CLASS_PATTERN.match(line):
+                class_name = CLASS_PATTERN.findall(line)[0]
                 if class_name == main_class_name:
                     in_definition = False
                     continue
@@ -143,9 +142,9 @@ class DuplicateRemover:
                     self.find_comment_block_start(lines, index) if comment_block_start_index is not None else index
                 )
 
-            elif self.ENUM_PATTERN.match(line):
-                if self.SINGLE_LINE_ENUM_PATTERN.match(line):
-                    enum_name = self.ENUM_PATTERN.findall(line)[0]
+            elif ENUM_PATTERN.match(line):
+                if SINGLE_LINE_ENUM_PATTERN.match(line):
+                    enum_name = ENUM_PATTERN.findall(line)[0]
                     definition_start_index = (
                         self.find_comment_block_start(lines, index) if comment_block_start_index is not None else index
                     )
@@ -155,7 +154,7 @@ class DuplicateRemover:
                     )
                     continue
 
-                enum_name = self.ENUM_PATTERN.findall(line)[0]
+                enum_name = ENUM_PATTERN.findall(line)[0]
                 current_definition = enum_name
                 in_definition = True
                 definition_start_index = (
@@ -176,19 +175,19 @@ class DuplicateRemover:
 
     @staticmethod
     def remove_definitions(
-        lines: List[str], definitions: Dict[str, Tuple[int, int]], names_to_remove: List[str]
-    ) -> List[str]:
+        lines: list[str], definitions: dict[str, tuple[int, int]], names_to_remove: list[str]
+    ) -> list[str]:
         """
         Remove specified definitions from the given lines.
 
         Args:
-            lines (List[str]): The lines of the file.
-            definitions (Dict[str, Tuple[int, int]]): A dictionary mapping definition names
+            lines (list[str]): The lines of the file.
+            definitions (dict[str, tuple[int, int]]): A dictionary mapping definition names
             to their start and end line numbers.
-            names_to_remove (List[str]): A list of definition names to remove.
+            names_to_remove (list[str]): A list of definition names to remove.
 
         Returns:
-            List[str]: The lines of the file with specified definitions removed.
+            list[str]: The lines of the file with specified definitions removed.
         """
         for name in names_to_remove:
             if name in definitions:
@@ -202,7 +201,7 @@ class DuplicateRemover:
         return lines
 
     def remove_duplicate_definitions(
-        self, file_path: Path, main_class_name: str, classes_to_remove: List[str], enums_to_remove: List[str]
+        self, file_path: Path, main_class_name: str, classes_to_remove: list[str], enums_to_remove: list[str]
     ) -> None:
         """
         Remove duplicate class and enum definitions from a file.
@@ -210,8 +209,8 @@ class DuplicateRemover:
         Args:
             file_path (Path): The path to the file to process.
             main_class_name (str): The name of the main class in the file (which should not be removed).
-            classes_to_remove (List[str]): A list of class names to remove.
-            enums_to_remove (List[str]): A list of enum names to remove.
+            classes_to_remove (list[str]): A list of class names to remove.
+            enums_to_remove (list[str]): A list of enum names to remove.
         """
         lines = self.read_file(file_path)
         if not lines:
