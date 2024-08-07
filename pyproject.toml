@@ -18,6 +18,7 @@ classifiers = [
 ]
 dependencies = [
     "typer"
+    "tree-sitter-c-sharp"
     # add all the dependencies here
 ]
 dynamic = ["readme", "version"]
