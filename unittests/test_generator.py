@@ -31,7 +31,6 @@ def output_dir(test_data_root):
     output_dir = test_data_root / "generated-classes"
     output_dir.mkdir(parents=True, exist_ok=True)
     yield output_dir
-    shutil.rmtree(output_dir)
 
 
 @pytest.fixture(scope="module")
