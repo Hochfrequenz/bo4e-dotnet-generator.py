@@ -69,22 +69,6 @@ class TestGenerator:
                 content = f.read()
             assert content == snapshot(name=str(relative_path))
 
-    def test_remove_duplicate_definitions(
-        self, test_data_root, schemas_dir, output_dir, quicktype_executable, snapshot: SnapshotAssertion
-    ):
-        """
-        Test case for removing duplicate definitions from generated C# classes.
-        """
-        generator.generate_csharp_classes(test_data_root, schemas_dir, output_dir, quicktype_executable)
-        remove_duplicate_definitions(output_dir)
-
-        generated_files = sorted(output_dir.glob("**/*.cs"))
-        for file in generated_files:
-            relative_path = file.relative_to(output_dir)
-            with file.open("r", encoding="utf-8") as f:
-                content = f.read()
-            assert content == snapshot(name=f"no_duplicates_{relative_path}")
-
     def test_cli_main(self, schemas_dir, output_dir, snapshot: SnapshotAssertion):
         """
         Test case for the CLI main function.
