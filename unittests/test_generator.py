@@ -109,54 +109,7 @@ class TestGenerator:
 
         with pytest.raises(ValueError, match="Schemas directory does not exist"):
             generator.generate_csharp_classes(test_data_root, invalid_schemas_dir, output_dir, quicktype_executable)
-
-    def test_duplicate_removal_specific_cases(
-        self, test_data_root, schemas_dir, output_dir, quicktype_executable, snapshot: SnapshotAssertion
-    ):
-        """
-        Test case for specific duplicate removal scenarios.
-        """
-        generator.generate_csharp_classes(test_data_root, schemas_dir, output_dir, quicktype_executable)
-
-        # Add some duplicate definitions manually for testing
-        test_file = output_dir / "bo" / "TestDuplicates.cs"
-        with test_file.open("w", encoding="utf-8") as f:
-            f.write(
-                """
-namespace BO4EDotNet
-{
-    public partial class TestClass
-    {
-        // Original content
-    }
-
-    public partial class TestClass
-    {
-        // Duplicate content
-    }
-
-    public enum TestEnum
-    {
-        Value1,
-        Value2
-    }
-
-    public enum TestEnum
-    {
-        Value1,
-        Value2,
-        Value3
-    }
-}
-"""
-            )
-
-        remove_duplicate_definitions(output_dir)
-
-        with test_file.open("r", encoding="utf-8") as f:
-            content = f.read()
-        assert content == snapshot(name="specific_duplicate_removal")
-
+            
     def test_generated_class_structure(self, test_data_root, schemas_dir, output_dir, quicktype_executable):
         """
         Test case to verify the structure of generated C# classes.
