@@ -54,8 +54,6 @@ class CSharpClassGenerator:  # pylint: disable=too-few-public-methods
             raise ValueError(f"Project root directory does not exist: {self.project_root}")
         if not self.schemas_dir.is_dir():
             raise ValueError(f"Schemas directory does not exist: {self.schemas_dir}")
-        if not Path(self.output_dir).is_dir():
-            raise ValueError(f"Output directory does not exist: {self.output_dir}")
 
     def _get_schema_files(self) -> list[Path]:
         """
