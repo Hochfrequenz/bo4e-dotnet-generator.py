@@ -53,6 +53,7 @@ def main(
     if output.exists():
         shutil.rmtree(output)  # Remove existing output directory if it exists
     shutil.copytree(generated_output_dir, output)  # Copy the generated output to the final output directory
+    shutil.rmtree(generated_output_dir)
 
     # Remove duplicate class and enum definitions
     _logger.info("Removing duplicate definitions...")
