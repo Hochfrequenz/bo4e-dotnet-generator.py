@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Generator
 
 import pytest
-from syrupy.assertion import SnapshotAssertion
+from syrupy.assertion import SnapshotAssertion # pylint: disable=import-error
 
 from bo4egenerator import duplicates
 from bo4egenerator import generator
