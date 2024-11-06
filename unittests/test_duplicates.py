@@ -23,7 +23,7 @@ class TestRemoveDuplicateDefinitions:
     """
 
     @pytest.fixture
-    def quicktype_executable(self):
+    def quicktype_executable(self) -> str:
         path_app_data = os.getenv("APPDATA")
         if platform.system() == "Windows" and path_app_data:
             return os.path.join(path_app_data, "npm", "quicktype.cmd")
@@ -70,7 +70,9 @@ class TestRemoveDuplicateDefinitions:
             "public enum Landescode" not in com_content
         ), "`public enum Landescode` should have been removed from Adresse.cs"
 
-    def test_remove_duplicate_definitions(self, output_dir, quicktype_executable, snapshot: SnapshotAssertion):
+    def test_remove_duplicate_definitions(
+        self, output_dir: Path, quicktype_executable: str, snapshot: SnapshotAssertion
+    ) -> None:
         """
         Test case for removing duplicate definitions from generated C# classes.
         """
