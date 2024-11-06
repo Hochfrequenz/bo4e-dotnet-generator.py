@@ -5,6 +5,7 @@ Unit test class for the Generator module.
 import os
 import platform
 from pathlib import Path
+from typing import Generator
 
 import pytest
 from syrupy.assertion import SnapshotAssertion  # pylint: disable=import-error
@@ -15,24 +16,24 @@ from bo4egenerator.cli import app as cli_app
 
 
 @pytest.fixture(scope="module")
-def test_data_root():
+def test_data_root() -> Path:
     return Path(__file__).parent / "test-data"
 
 
 @pytest.fixture(scope="module")
-def schemas_dir(test_data_root):
+def schemas_dir(test_data_root: Path) -> Path:
     return test_data_root / "schemas"
 
 
 @pytest.fixture(scope="function")
-def output_dir(test_data_root):
+def output_dir(test_data_root: Path) -> Generator[Path, None, None]:
     output_dir = test_data_root / "generated-classes"
     output_dir.mkdir(parents=True, exist_ok=True)
     yield output_dir
 
 
 @pytest.fixture(scope="module")
-def quicktype_executable():
+def quicktype_executable() -> str:
     path_app_data = os.getenv("APPDATA")
     if platform.system() == "Windows" and path_app_data:
         return os.path.join(path_app_data, "npm", "quicktype.cmd")
@@ -44,7 +45,9 @@ class TestGenerator:
     Unit test class for the Generator module.
     """
 
-    def test_generate_csharp_classes(self, test_data_root, schemas_dir, output_dir, quicktype_executable):
+    def test_generate_csharp_classes(
+        self, test_data_root: Path, schemas_dir: Path, output_dir: Path, quicktype_executable: str
+    ) -> None:
         """
         Test case for generating C# classes using the `generate_csharp_classes` method.
         """
@@ -53,8 +56,13 @@ class TestGenerator:
         assert angebot_file.exists(), f"Expected file {angebot_file} was not generated"
 
     def test_generate_csharp_classes_snapshot(  # pylint: disable=too-many-arguments, too-many-positional-arguments
-        self, test_data_root, schemas_dir, output_dir, quicktype_executable, snapshot: SnapshotAssertion
-    ):
+        self,
+        test_data_root: Path,
+        schemas_dir: Path,
+        output_dir: Path,
+        quicktype_executable: str,
+        snapshot: SnapshotAssertion,
+    ) -> None:
         """
         Test case for generating C# classes and comparing with snapshots.
         """
@@ -67,7 +75,7 @@ class TestGenerator:
                 content = f.read()
             assert content == snapshot(name=str(relative_path))
 
-    def test_cli_main(self, schemas_dir, output_dir, snapshot: SnapshotAssertion):
+    def test_cli_main(self, schemas_dir: Path, output_dir: Path, snapshot: SnapshotAssertion) -> None:
         """
         Test case for the CLI main function.
         """
@@ -83,7 +91,9 @@ class TestGenerator:
                 content = f.read()
             assert content == snapshot(name=f"cli_{relative_path}")
 
-    def test_error_handling_invalid_schemas_dir(self, test_data_root, output_dir, quicktype_executable):
+    def test_error_handling_invalid_schemas_dir(
+        self, test_data_root: Path, output_dir: Path, quicktype_executable: str
+    ) -> None:
         """
         Test case for error handling when given an invalid schemas directory.
         """
@@ -92,7 +102,9 @@ class TestGenerator:
         with pytest.raises(ValueError, match="Schemas directory does not exist"):
             generator.generate_csharp_classes(test_data_root, invalid_schemas_dir, output_dir, quicktype_executable)
 
-    def test_generated_class_structure(self, test_data_root, schemas_dir, output_dir, quicktype_executable):
+    def test_generated_class_structure(
+        self, test_data_root: Path, schemas_dir: Path, output_dir: Path, quicktype_executable: str
+    ) -> None:
         """
         Test case to verify the structure of generated C# classes.
         """
@@ -109,11 +121,12 @@ class TestGenerator:
         assert "using System;" in content, "Using System directive not found in generated file"
         assert "using Newtonsoft.Json;" in content, "Using Newtonsoft.Json directive not found in generated file"
 
-    def test_cli_help(self):
-        """
-        Test case for CLI help message.
-        """
-        runner = CliRunner()
-        result = runner.invoke(cli_app, ["--help"])
-        assert result.exit_code == 0
-        assert "Generate C# classes from the BO4E schema files" in result.output
+
+def test_cli_help() -> None:
+    """
+    Test case for CLI help message.
+    """
+    runner = CliRunner()
+    result = runner.invoke(cli_app, ["--help"])
+    assert result.exit_code == 0
+    assert "Generate C# classes from the BO4E schema files" in result.output
