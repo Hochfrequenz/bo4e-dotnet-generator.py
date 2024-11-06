@@ -1,3 +1,4 @@
 # requirements for the hatchling build ssystem
-build
-twine
+build>=1.2.2
+twine>=5.1.1
+pkginfo==1.10.0
