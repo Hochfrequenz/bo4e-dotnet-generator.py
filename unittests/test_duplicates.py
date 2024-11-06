@@ -7,8 +7,7 @@ from typing import Generator
 import pytest
 from syrupy.assertion import SnapshotAssertion  # pylint: disable=import-error
 
-from bo4egenerator import duplicates
-from bo4egenerator import generator
+from bo4egenerator import duplicates, generator
 
 # sys.path.insert(
 #    0, str(Path(__file__).resolve().parents[1] / "src")
