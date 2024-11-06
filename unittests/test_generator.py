@@ -7,7 +7,7 @@ import platform
 from pathlib import Path
 
 import pytest
-from syrupy.assertion import SnapshotAssertion # pylint: disable=import-error
+from syrupy.assertion import SnapshotAssertion  # pylint: disable=import-error
 from typer.testing import CliRunner
 
 from bo4egenerator import generator
@@ -52,7 +52,7 @@ class TestGenerator:
         angebot_file = output_dir / "bo" / "Angebot.cs"
         assert angebot_file.exists(), f"Expected file {angebot_file} was not generated"
 
-    def test_generate_csharp_classes_snapshot( # pylint: disable=too-many-arguments, too-many-positional-arguments
+    def test_generate_csharp_classes_snapshot(  # pylint: disable=too-many-arguments, too-many-positional-arguments
         self, test_data_root, schemas_dir, output_dir, quicktype_executable, snapshot: SnapshotAssertion
     ):
         """
