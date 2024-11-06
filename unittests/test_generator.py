@@ -93,7 +93,7 @@ class TestGenerator:
 
         with pytest.raises(ValueError, match="Schemas directory does not exist"):
             generator.generate_csharp_classes(test_data_root, invalid_schemas_dir, output_dir, quicktype_executable)
-            
+
     def test_generated_class_structure(self, test_data_root, schemas_dir, output_dir, quicktype_executable):
         """
         Test case to verify the structure of generated C# classes.

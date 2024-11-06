@@ -21,13 +21,14 @@ class TestRemoveDuplicateDefinitions:
     """
     test case for removing duplicate class and enum definitions from C# files.
     """
+
     @pytest.fixture
     def quicktype_executable(self):
         path_app_data = os.getenv("APPDATA")
         if platform.system() == "Windows" and path_app_data:
             return os.path.join(path_app_data, "npm", "quicktype.cmd")
         return "quicktype"  # Assuming it's in PATH on Linux (GH Actions)
-    
+
     @pytest.fixture
     def output_dir(self, tmp_path: Path) -> Generator[Path, None, None]:
         """Copy the generated classes to the temporary directory."""
@@ -69,9 +70,7 @@ class TestRemoveDuplicateDefinitions:
             "public enum Landescode" not in com_content
         ), "`public enum Landescode` should have been removed from Adresse.cs"
 
-    def test_remove_duplicate_definitions(
-        self, output_dir, quicktype_executable, snapshot: SnapshotAssertion
-    ):
+    def test_remove_duplicate_definitions(self, output_dir, quicktype_executable, snapshot: SnapshotAssertion):
         """
         Test case for removing duplicate definitions from generated C# classes.
         """
