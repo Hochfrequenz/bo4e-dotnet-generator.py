@@ -1,10 +1,13 @@
+import os
+import platform
 import shutil
 from pathlib import Path
 from typing import Generator
 
 import pytest
+from syrupy.assertion import SnapshotAssertion  # pylint: disable=import-error
 
-from bo4egenerator import duplicates
+from bo4egenerator import duplicates, generator
 
 # sys.path.insert(
 #    0, str(Path(__file__).resolve().parents[1] / "src")
@@ -17,6 +20,13 @@ class TestRemoveDuplicateDefinitions:
     """
     test case for removing duplicate class and enum definitions from C# files.
     """
+
+    @pytest.fixture
+    def quicktype_executable(self) -> str:
+        path_app_data = os.getenv("APPDATA")
+        if platform.system() == "Windows" and path_app_data:
+            return os.path.join(path_app_data, "npm", "quicktype.cmd")
+        return "quicktype"  # Assuming it's in PATH on Linux (GH Actions)
 
     @pytest.fixture
     def output_dir(self, tmp_path: Path) -> Generator[Path, None, None]:
@@ -58,3 +68,21 @@ class TestRemoveDuplicateDefinitions:
         assert (
             "public enum Landescode" not in com_content
         ), "`public enum Landescode` should have been removed from Adresse.cs"
+
+    def test_remove_duplicate_definitions(
+        self, output_dir: Path, quicktype_executable: str, snapshot: SnapshotAssertion
+    ) -> None:
+        """
+        Test case for removing duplicate definitions from generated C# classes.
+        """
+        test_data_root = Path(__file__).parent / "test-data"
+        schemas_dir = test_data_root / "schemas"
+        generator.generate_csharp_classes(test_data_root, schemas_dir, output_dir, quicktype_executable)
+        duplicates.remove_duplicate_definitions(output_dir)
+
+        generated_files = sorted(output_dir.glob("**/*.cs"))
+        for file in generated_files:
+            relative_path = file.relative_to(output_dir)
+            with file.open("r", encoding="utf-8") as f:
+                content = f.read()
+            assert content == snapshot(name=f"no_duplicates_{relative_path}")
