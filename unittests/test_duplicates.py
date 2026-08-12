@@ -55,6 +55,6 @@ class TestRemoveDuplicateDefinitions:
         assert "public enum Typ" not in bo_content, "`public enum Typ` should have been removed from Angebot.cs"
 
         # Check that "public enum Landescode" is not in Adresse.cs
-        assert (
-            "public enum Landescode" not in com_content
-        ), "`public enum Landescode` should have been removed from Adresse.cs"
+        assert "public enum Landescode" not in com_content, (
+            "`public enum Landescode` should have been removed from Adresse.cs"
+        )

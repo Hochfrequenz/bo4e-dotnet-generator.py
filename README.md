@@ -11,7 +11,7 @@ For fetching last json schemas you can use [`BO4E-Schema-Tool`](https://github.c
 ![Unittests status badge](https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/workflows/Unittests/badge.svg)
 ![Coverage status badge](https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/workflows/Coverage/badge.svg)
 ![Linting status badge](https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/workflows/Linting/badge.svg)
-![Black status badge](https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/workflows/Formatting/badge.svg)
+![Formatting status badge](https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/workflows/Formatting/badge.svg)
 
 ## How to use this Tool (as a user)
 ```bash
@@ -42,7 +42,7 @@ uv sync --group dev
 You can run the individual checks via their dependency groups, e.g.:
 ```bash
 uv run --group tests python -m pytest
-uv run --group linting pylint bo4egenerator
+uv run --group linting ruff check .
 uv run --group type_check mypy --show-error-codes src/bo4egenerator --strict
 ```
 For further information, see the

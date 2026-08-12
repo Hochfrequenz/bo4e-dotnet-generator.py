@@ -35,10 +35,9 @@ jobs:
         run: npm install -g quicktype
       - name: Run the tests
         run: uv run --group tests python -m pytest
-      - name: Run pylint
+      - name: Run ruff check
         run: |
-          uv run --group linting pylint bo4egenerator
-          uv run --group linting pylint unittests --rcfile=unittests/.pylintrc
+          uv run --group linting ruff check .
       - name: Run mypy
         run: |
           uv run --group type_check mypy --show-error-codes src/bo4egenerator --strict
