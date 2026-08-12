@@ -16,7 +16,7 @@ jobs:
         os: [ubuntu-latest]
         linter-env: ["linting", "type_check", "spell_check"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install uv
         uses: astral-sh/setup-uv@v9.0.0
         with:
