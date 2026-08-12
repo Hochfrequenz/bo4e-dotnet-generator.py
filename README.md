@@ -33,9 +33,20 @@ bo4e-dotnet-generator [schema_dir] [output_dir]
 
 ## How to use this Repository on Your Machine (as a developer)
 
-Please follow the instructions in our
+This repository uses [uv](https://docs.astral.sh/uv/) for dependency management and tooling.
+After [installing uv](https://docs.astral.sh/uv/getting-started/installation/), install the
+development dependencies with:
+```bash
+uv sync --group dev
+```
+You can run the individual checks via their dependency groups, e.g.:
+```bash
+uv run --group tests python -m pytest
+uv run --group linting pylint bo4egenerator
+uv run --group type_check mypy --show-error-codes src/bo4egenerator --strict
+```
+For further information, see the
 [Python Template Repository](https://github.com/Hochfrequenz/python_template_repository#how-to-use-this-repository-on-your-machine).
-And for further information, see the [Tox Repository](https://github.com/tox-dev/tox).
 
 ### Quicktype Executable Path
 

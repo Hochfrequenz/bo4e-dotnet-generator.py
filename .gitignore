@@ -39,7 +39,6 @@ pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
-.tox/
 .nox/
 .coverage
 .coverage.*
@@ -134,6 +133,7 @@ dmypy.json
 .vscode/
 
 src/_your_package_version.py
+src/_bo4e-dotnet-generator_version.py
 
 src/schemas/
 src/generated-dotnet-classes/

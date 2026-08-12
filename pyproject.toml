@@ -26,6 +26,41 @@ dynamic = ["readme", "version"]
 Changelog = "https://github.com/Hochfrequenz/bo4e-dotnet-generator.py/releases"
 Homepage = "https://github.com/Hochfrequenz/bo4e-dotnet-generator.py"
 
+[dependency-groups]
+tests = [
+    "pytest==8.3.4"
+]
+linting = [
+    "pylint==3.3.2",
+    { include-group = "tests" }
+]
+type_check = [
+    "mypy==1.13.0",
+    { include-group = "tests" }
+]
+spell_check = [
+    "codespell==2.3.0"
+]
+coverage = [
+    "coverage==7.6.9",
+    { include-group = "tests" }
+]
+formatting = [
+    "black==24.10.0",
+    "isort==5.13.2"
+]
+dev = [
+    { include-group = "tests" },
+    { include-group = "linting" },
+    { include-group = "type_check" },
+    { include-group = "spell_check" },
+    { include-group = "coverage" },
+    { include-group = "formatting" }
+]
+
+[tool.uv]
+default-groups = []
+
 [project.scripts]
 bo4e-dotnet-generator = "bo4egenerator.cli:cli"
 # bo4egenerator is the package in the src directory
