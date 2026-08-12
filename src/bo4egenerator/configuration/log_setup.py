@@ -14,7 +14,7 @@ log_directory = Path(__file__).parent / ".logs"
 log_directory.mkdir(exist_ok=True)
 
 # Create a file handler that logs even debug messages
-log_file_path = log_directory / f'{datetime.now().isoformat().replace(":", "").replace("+", "")}.log'
+log_file_path = log_directory / f"{datetime.now().isoformat().replace(':', '').replace('+', '')}.log"
 _filehandler = logging.FileHandler(log_file_path)
 _filehandler.setLevel(GLOBAL_LOG_LEVEL)
 

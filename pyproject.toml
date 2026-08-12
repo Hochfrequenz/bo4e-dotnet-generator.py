@@ -31,8 +31,7 @@ tests = [
     "pytest==8.3.4"
 ]
 linting = [
-    "pylint==3.3.2",
-    { include-group = "tests" }
+    "ruff==0.16.2"
 ]
 type_check = [
     "mypy==1.13.0",
@@ -45,17 +44,12 @@ coverage = [
     "coverage==7.6.9",
     { include-group = "tests" }
 ]
-formatting = [
-    "black==24.10.0",
-    "isort==5.13.2"
-]
 dev = [
     { include-group = "tests" },
     { include-group = "linting" },
     { include-group = "type_check" },
     { include-group = "spell_check" },
-    { include-group = "coverage" },
-    { include-group = "formatting" }
+    { include-group = "coverage" }
 ]
 
 [tool.uv]
@@ -68,16 +62,71 @@ bo4e-dotnet-generator = "bo4egenerator.cli:cli"
 # :cli means the cli function inside the cli.py module
 
 
-[tool.black]
+[tool.ruff]
 line-length = 120
-target_version = ["py311", "py312"]
+extend-exclude = ["*.md"]
 
-[tool.isort]
-line_length = 120
-profile = "black"
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "N",   # pep8-naming
+    "PL",  # pylint
+    "RUF", # ruff-specific rules
+    "SIM", # flake8-simplify
+    "C4",  # flake8-comprehensions
+    "PTH", # flake8-use-pathlib
+    "PT",  # flake8-pytest-style
+    "RET", # flake8-return
+    "ARG", # flake8-unused-arguments
+    "TC",  # flake8-type-checking
+    "PIE", # flake8-pie
+    "RSE", # flake8-raise
+    "ISC", # flake8-implicit-str-concat
+    "S",   # flake8-bandit (published library)
+]
+ignore = [
+    "PLR0913", # too-many-arguments
+    "PLR0917", # too-many-positional-arguments
+    "PLR0912", # too-many-branches
+    "PLR0915", # too-many-statements
+    "PLR2004", # magic-value-comparison
+    "ISC001",  # single-line-implicit-string-concatenation (conflicts with ruff format)
+]
 
-[tool.pylint."MESSAGES CONTROL"]
-max-line-length = 120
+[tool.ruff.lint.isort]
+known-first-party = ["bo4egenerator"]
+
+[tool.ruff.lint.per-file-ignores]
+# Standing globs (hand-written): tests may use assert and magic values freely.
+"unittests/**" = [
+    "S101",    # assert-used
+    "PLR2004", # magic-value-comparison
+]
+# Grandfathered existing violations (generated): zero lint churn on pre-existing code.
+# New/changed code is held to the full select above. F811 (redefined-while-unused) is
+# deliberately NOT grandfathered here - it flags real code and is left for a maintainer decision.
+"src/bo4egenerator/cli.py" = [
+    "B008",    # function-call-in-default-argument
+    "PTH118",  # os-path-join
+]
+"src/bo4egenerator/generator.py" = [
+    "PTH118",  # os-path-join
+    "S603",    # subprocess-without-shell-equals-true
+]
+"unittests/test_duplicates.py" = [
+    "PT022",   # pytest-useless-yield-fixture
+    "PTH123",  # builtin-open
+    "UP015",   # redundant-open-modes
+    "UP035",   # deprecated-import
+]
+"unittests/test_generator.py" = [
+    "PTH118",  # os-path-join
+]
 
 [mypy]
 truethy-bool = true
