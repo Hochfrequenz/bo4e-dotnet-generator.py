@@ -35,7 +35,7 @@ linting = [
     { include-group = "tests" }
 ]
 type_check = [
-    "mypy==1.13.0",
+    "mypy==2.3.0",
     { include-group = "tests" }
 ]
 spell_check = [
